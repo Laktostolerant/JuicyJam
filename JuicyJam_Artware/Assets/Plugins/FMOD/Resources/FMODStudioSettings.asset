@@ -484,8 +484,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../../../Documents/FMOD Studio/JuiceJam/JuiceJam.fspro
-  sourceBankPath: ../../../../Documents/FMOD Studio/JuiceJam/Build
+  sourceProjectPath: JuiceJam FMOD/JuiceJam.fspro
+  sourceBankPath: JuiceJam FMOD/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
