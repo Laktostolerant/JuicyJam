@@ -10,7 +10,6 @@ public class SniperMovement : MonoBehaviour
     CharacterController charCtrl;
     Vector3 targetPos;
 
-    [SerializeField] LayerMask testMask;
     RaycastHit hit;
 
     bool repositionDelay;
@@ -34,7 +33,7 @@ public class SniperMovement : MonoBehaviour
         else if (currentState == EnemyState.REPOSITIONING)
         {
             var offset = targetPos - transform.position;
-            charCtrl.Move(offset * Time.fixedDeltaTime * 10);
+            charCtrl.Move(offset * Time.fixedDeltaTime);
         }
     }
 
@@ -62,7 +61,7 @@ public class SniperMovement : MonoBehaviour
     IEnumerator Reposition()
     {
         repositionDelay = true;
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(1f);
         targetPos = NewPosition();
         Debug.DrawLine(transform.position, targetPos, Color.red, 30);
         currentState = EnemyState.REPOSITIONING;
