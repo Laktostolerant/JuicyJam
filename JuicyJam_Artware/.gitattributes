@@ -3,6 +3,9 @@
 
 * text=auto
 
+# FMOD
+*.bundle text eol=lf
+
 # Unity files
 *.meta -text merge=unityyamlmerge diff
 *.unity -text merge=unityyamlmerge diff

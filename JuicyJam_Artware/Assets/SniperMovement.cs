@@ -4,87 +4,72 @@ using UnityEngine;
 
 public class SniperMovement : MonoBehaviour
 {
-    enum EnemyState { CHASING, REPOSITIONING, MOVINGTONEWPOS, SHOOTING }
+    enum EnemyState { FIGHTING, REPOSITIONING }
     EnemyState currentState = EnemyState.REPOSITIONING;
 
     CharacterController charCtrl;
-    Vector3 targetPos;
+    private Vector3 targetPos;
 
-    [SerializeField] LayerMask testMask;
     RaycastHit hit;
+
+    bool repositionDelay;
 
     void Start()
     {
         charCtrl = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
+
+
     void Update()
     {
-        Debug.Log("CURRENT STATE:" + currentState);
+        if (!repositionDelay)
+            StartCoroutine(Reposition());
 
-        if (currentState == EnemyState.SHOOTING)
+
+        if (currentState == EnemyState.FIGHTING)
         {
             Debug.Log("lol");
         }
-        else if (currentState == EnemyState.CHASING)
-        {
-
-        }
-        else if(currentState == EnemyState.MOVINGTONEWPOS)
+        else if (currentState == EnemyState.REPOSITIONING)
         {
             var offset = targetPos - transform.position;
             charCtrl.Move(offset * Time.fixedDeltaTime);
-            if(Vector3.Distance(transform.position, targetPos) < 1.5f)
-            {
-                Debug.Log("IM CLOSE ENOUGH, TIME TO GO TO NEW POS LOL");
-                StartCoroutine(Snoper());
-            }
-            else
-            {
-                Debug.Log("DISTANCE IS: " + Vector3.Distance(transform.position, targetPos));
-            }
-        }
-        else if (currentState == EnemyState.REPOSITIONING)
-        {
-            targetPos = NewPosition(transform.position);
-            if(targetPos != transform.position)
-                currentState = EnemyState.MOVINGTONEWPOS;
-
-            Debug.DrawRay(transform.position, targetPos, Color.green, 3);
-        }
-        else
-        {
-            currentState = EnemyState.CHASING;
         }
     }
 
-    Vector3 NewPosition(Vector3 originPosition)
+    Vector3 NewPosition()
     {
-        Vector3 newPos = new Vector3(0, 0, 0);
+        Vector3 newPos = transform.position;
 
-        Vector3 randomDirection = Random.insideUnitSphere * 100;
-        LayerMask mask = LayerMask.NameToLayer("Wall");
-        mask = 1 << 7;
+        float distanceFromOrigin = 0;
 
-        Vector3 p1 = transform.position + charCtrl.center;
+        LayerMask mask = 1 << 7;
 
-        if (Physics.SphereCast(p1, 2, randomDirection, out hit, 100, mask))
+        Vector3 characterCenter = transform.position + charCtrl.center;
+        while(distanceFromOrigin < 20)
         {
-            newPos = hit.transform.position;
-            Debug.Log("HIT!");
+            Vector3 randomDirection = Random.onUnitSphere;
+            if (Physics.Raycast(characterCenter, randomDirection * 50, out hit, 30, mask))
+            {
+                Debug.DrawLine(transform.position, hit.point, Color.red, 20);
+                newPos = hit.point;
+            }
+            distanceFromOrigin = Vector3.Distance(newPos, transform.position);
+            Debug.Log("distance from origin: " + distanceFromOrigin + " and hit point Y: " + hit.point.y);
         }
-        else
-        {
-            newPos = transform.position;
-            Debug.Log("NO HIT :(");
-        }
+
+        Debug.DrawLine(transform.position, hit.point, Color.blue, 20);
+        Debug.Log("finally broke free: " + hit.point);
         return newPos;
     }
 
-    IEnumerator Snoper()
+    IEnumerator Reposition()
     {
-        yield return new WaitForSeconds(1f);
+        repositionDelay = true;
+        yield return new WaitForSeconds(0.5f);
+        targetPos = NewPosition();
         currentState = EnemyState.REPOSITIONING;
+        repositionDelay = false;
     }
 }
