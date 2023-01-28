@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class SniperMovement : MonoBehaviour
 {
-    enum EnemyState { FIGHTING, REPOSITIONING }
-    EnemyState currentState = EnemyState.REPOSITIONING;
+    enum EnemyState { RUNNING, GRAPPLED }
+    EnemyState currentState = EnemyState.GRAPPLED;
 
     CharacterController charCtrl;
-    private Vector3 targetPos;
+    private Vector3 grapplePoint;
 
     RaycastHit hit;
 
-    bool repositionDelay;
+    bool canGrappleAgain = true;
+
+    Coroutine repositionCoroutine;
 
     void Start()
     {
@@ -23,53 +25,67 @@ public class SniperMovement : MonoBehaviour
 
     void Update()
     {
-        if (!repositionDelay)
-            StartCoroutine(Reposition());
-
-
-        if (currentState == EnemyState.FIGHTING)
+        if (currentState == EnemyState.RUNNING)
         {
-            Debug.Log("lol");
+            //do smth
         }
-        else if (currentState == EnemyState.REPOSITIONING)
+        else if (currentState == EnemyState.GRAPPLED)
         {
-            var offset = targetPos - transform.position;
-            charCtrl.Move(offset * Time.fixedDeltaTime);
+            Grapple();
         }
+
+        //if (repositionCoroutine == null)
+        //    repositionCoroutine = StartCoroutine(Reposition(Random.Range(2, 5)));
     }
 
     Vector3 NewPosition()
     {
+        Debug.Log("YEEHAW");
+        currentState = EnemyState.GRAPPLED;
         Vector3 newPos = transform.position;
-
         float distanceFromOrigin = 0;
-
-        LayerMask mask = 1 << 7;
+        LayerMask grappleMask = 1 << 7 | 1 << 9;
 
         Vector3 characterCenter = transform.position + charCtrl.center;
         while(distanceFromOrigin < 20)
         {
             Vector3 randomDirection = Random.onUnitSphere;
-            if (Physics.Raycast(characterCenter, randomDirection * 50, out hit, 30, mask))
+            if (Physics.Raycast(characterCenter, randomDirection * 50, out hit, 30, grappleMask))
             {
-                Debug.DrawLine(transform.position, hit.point, Color.red, 20);
-                newPos = hit.point;
+                if(hit.transform.gameObject.layer == 7)
+                {
+                    newPos = hit.point;
+                    Debug.DrawLine(transform.position, hit.point, Color.red, 20);
+                }
+                else
+                {
+                    newPos = transform.position;
+                    Debug.DrawLine(transform.position, hit.point, Color.black, 20);
+                }
+
             }
             distanceFromOrigin = Vector3.Distance(newPos, transform.position);
-            Debug.Log("distance from origin: " + distanceFromOrigin + " and hit point Y: " + hit.point.y);
         }
-
         Debug.DrawLine(transform.position, hit.point, Color.blue, 20);
-        Debug.Log("finally broke free: " + hit.point);
         return newPos;
     }
-
-    IEnumerator Reposition()
+    
+    void Grapple()
     {
-        repositionDelay = true;
-        yield return new WaitForSeconds(0.5f);
-        targetPos = NewPosition();
-        currentState = EnemyState.REPOSITIONING;
-        repositionDelay = false;
+        var moveOffset = grapplePoint - transform.position;
+        charCtrl.Move(moveOffset * Time.fixedDeltaTime);
+
+        if (canGrappleAgain && charCtrl.velocity.magnitude < 1)
+        {
+            repositionCoroutine = StartCoroutine(Reposition(Random.Range(2, 5)));
+        }
+    }
+
+    IEnumerator Reposition(float delay)
+    {
+        canGrappleAgain = false;
+        grapplePoint = NewPosition();
+        yield return new WaitForSeconds(delay);
+        canGrappleAgain = true;
     }
 }
