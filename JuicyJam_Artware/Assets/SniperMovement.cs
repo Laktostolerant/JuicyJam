@@ -21,21 +21,16 @@ public class SniperMovement : MonoBehaviour
         charCtrl = GetComponent<CharacterController>();
     }
 
-
-
     void Update()
     {
         if (currentState == EnemyState.RUNNING)
         {
-            //do smth
+            Chase();
         }
         else if (currentState == EnemyState.GRAPPLED)
         {
             Grapple();
         }
-
-        //if (repositionCoroutine == null)
-        //    repositionCoroutine = StartCoroutine(Reposition(Random.Range(2, 5)));
     }
 
     Vector3 NewPosition()
@@ -69,6 +64,11 @@ public class SniperMovement : MonoBehaviour
         Debug.DrawLine(transform.position, hit.point, Color.blue, 20);
         return newPos;
     }
+
+    void Chase()
+    {
+
+    }
     
     void Grapple()
     {
@@ -77,7 +77,7 @@ public class SniperMovement : MonoBehaviour
 
         if (canGrappleAgain && charCtrl.velocity.magnitude < 1)
         {
-            repositionCoroutine = StartCoroutine(Reposition(Random.Range(2, 5)));
+            repositionCoroutine = StartCoroutine(Reposition(Random.Range(4, 10)));
         }
     }
 
