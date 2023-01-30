@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9052588e-3763-44bf-ba56-43f0ad4a7e9a}">
+		<property name="assetPath">
+			<value>Player_Dash_3.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3999999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d79d05ae-ee15-4f81-b2a5-d66623a1a3a6}</destination>
+		</relationship>
+	</object>
+</objects>
