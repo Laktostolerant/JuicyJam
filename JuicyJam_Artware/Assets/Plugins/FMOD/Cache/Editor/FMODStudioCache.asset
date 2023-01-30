@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: FMOD Project/SmashNGrab FMOD Project/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638106694723298644
+  lastModified: 638106852325052290
   FileSizes:
   - Name: Desktop
-    Value: 124832
+    Value: 124320
   Exists: 1
 --- !u!114 &-568443442558326558
 MonoBehaviour:
@@ -63,7 +63,6 @@ MonoBehaviour:
   - {fileID: 6792900179295591807}
   - {fileID: -6784693639346451841}
   EditorEvents:
-  - {fileID: 1814427101727165214}
   - {fileID: 1564278205339947927}
   - {fileID: -568443442558326558}
   - {fileID: 9197841469283414927}
@@ -72,7 +71,7 @@ MonoBehaviour:
   - {fileID: -6784693639346451841}
   StringsBanks:
   - {fileID: 6792900179295591807}
-  cacheTime: 638106694723338555
+  cacheTime: 638106852325092313
   cacheVersion: 131601
 --- !u!114 &1564278205339947927
 MonoBehaviour:
@@ -101,33 +100,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 774
---- !u!114 &1814427101727165214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/New Event
-  m_EditorClassIdentifier: 
-  Path: event:/New Event
-  Guid:
-    Data1: -990736799
-    Data2: 1241392929
-    Data3: -252056668
-    Data4: 1538014494
-  Banks:
-  - {fileID: -6784693639346451841}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &6792900179295591807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,10 +115,10 @@ MonoBehaviour:
   Path: FMOD Project/SmashNGrab FMOD Project/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638106694723338555
+  lastModified: 638106852325092313
   FileSizes:
   - Name: Desktop
-    Value: 896
+    Value: 844
   Exists: 1
 --- !u!114 &9197841469283414927
 MonoBehaviour:
