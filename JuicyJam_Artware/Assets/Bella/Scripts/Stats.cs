@@ -16,6 +16,11 @@ public class Stats : MonoBehaviour
     private void Die()
     {
         Debug.Log("YOU DIED");
+
+        // TODO - ADD WHAT HAPPENS WHEN DEAD
+        // STOP TIME
+        // GAME OVER SCREEN 
+        // SOMETHING MORE?
     }
 
     public void DealDamage(float damage)
