@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class SniperMovement : MonoBehaviour
 {
     enum EnemyState { CHASING, GRAPPLING, NOAGGRO }
-    EnemyState currentState = EnemyState.CHASING;
+    EnemyState currentState = EnemyState.GRAPPLING;
 
     GameObject player;
     CharacterController charCtrl;
@@ -86,7 +86,6 @@ public class SniperMovement : MonoBehaviour
             return;
 
         Debug.Log("i be chasin");
-        currentState = EnemyState.CHASING;
 
         if(Vector3.Distance(player.transform.position, transform.position) > aggroRange)
         {
@@ -131,7 +130,7 @@ public class SniperMovement : MonoBehaviour
         currentState = EnemyState.NOAGGRO;
         falling = true;
         yield return new WaitUntil(() => !falling);
-        Chase();
+        //currentState = EnemyState.CHASING;
     }
 
     void Gravity()
