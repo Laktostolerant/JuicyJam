@@ -1,6 +1,18 @@
 
 JuicyJam_Artware/fmod_editor.log
 *.log
+<<<<<<< HEAD
+<<<<<<< HEAD
+*.asset
+*.log
+JuicyJam_Artware/fmod_editor.log
+=======
 JuicyJam_Artware/fmod_editor.log
 JuicyJam_Artware/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
 JuicyJam_Artware/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+>>>>>>> 62666676241ca0bf1b498221a4e026bc74de7fc4
+=======
+JuicyJam_Artware/fmod_editor.log
+JuicyJam_Artware/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+JuicyJam_Artware/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+>>>>>>> 62666676241ca0bf1b498221a4e026bc74de7fc4
