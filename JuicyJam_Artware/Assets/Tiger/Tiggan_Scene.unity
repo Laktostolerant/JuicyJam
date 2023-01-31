@@ -761,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc57146b535b2f47bca1c1163e06cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionChecker: {fileID: 0}
 --- !u!135 &142192948
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3185,8 +3186,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909817717}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.11, y: 4, z: -9.27}
-  m_LocalScale: {x: 5.9958, y: 2, z: 2}
+  m_LocalPosition: {x: 11, y: 4, z: -7}
+  m_LocalScale: {x: 8.9925, y: 2, z: 17.404917}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 607844504}
@@ -4618,8 +4619,8 @@ GameObject:
   - component: {fileID: 1741482075}
   - component: {fileID: 1741482074}
   - component: {fileID: 1741482073}
-  - component: {fileID: 1741482072}
   - component: {fileID: 1741482078}
+  - component: {fileID: 1741482072}
   m_Layer: 6
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -4639,6 +4640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc57146b535b2f47bca1c1163e06cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionChecker: {fileID: 0}
 --- !u!143 &1741482073
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4653,7 +4655,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -5078,8 +5080,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846252467}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 6, z: 4}
+  m_LocalPosition: {x: 150, y: 0, z: 0}
+  m_LocalScale: {x: 25, y: 6, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1242458200}
