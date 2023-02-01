@@ -15,7 +15,7 @@ public class JohnsTestScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Player_Step");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Effect_Glass_Shatter");
         }
     }
 }
