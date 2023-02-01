@@ -482,10 +482,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
-  sourceProjectPath: JuiceJam FMOD/JuiceJam.fspro
-  sourceBankPath: JuiceJam FMOD/Build
+  HasSourceProject: 0
+  HasPlatforms: 0
+  sourceProjectPath: FMOD Project/SmashNGrab FMOD Project/SmashNGrab FMOD Project.fspro
+  sourceBankPath: Assets/FMOD Banks/Desktop
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

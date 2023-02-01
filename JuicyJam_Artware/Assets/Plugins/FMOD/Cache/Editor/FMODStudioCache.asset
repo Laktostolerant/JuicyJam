@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8499832244383430171
+--- !u!114 &-4450773445878754228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,16 +10,68 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ../../../../Documents/FMOD Studio/JuiceJam/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638104255658711443
-  FileSizes:
-  - Name: Desktop
-    Value: 758
+  Path: Assets/FMOD Banks/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638108473888449614
+  FileSizes: []
   Exists: 1
+--- !u!114 &-1401894717565960619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player_Dash
+  m_EditorClassIdentifier: 
+  Path: event:/Player_Dash
+  Guid:
+    Data1: -657854416
+    Data2: 1297408318
+    Data3: -56497755
+    Data4: 963057361
+  Banks:
+  - {fileID: -4450773445878754228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1400
+--- !u!114 &-940407249234397507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Effect_Glass_Shatter
+  m_EditorClassIdentifier: 
+  Path: event:/Effect_Glass_Shatter
+  Guid:
+    Data1: 1166603456
+    Data2: 1332514234
+    Data3: 903846066
+    Data4: 1353786380
+  Banks:
+  - {fileID: -4450773445878754228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2380
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,45 +85,19 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -8499832244383430171}
-  - {fileID: 4397492604766340827}
+  - {fileID: 7457040788635206783}
+  - {fileID: -4450773445878754228}
   EditorEvents:
-  - {fileID: 1814427101727165214}
+  - {fileID: -940407249234397507}
+  - {fileID: -1401894717565960619}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 4397492604766340827}
+  - {fileID: -4450773445878754228}
   StringsBanks:
-  - {fileID: -8499832244383430171}
-  cacheTime: 638104255658711443
+  - {fileID: 7457040788635206783}
+  cacheTime: 638108473888487613
   cacheVersion: 131601
---- !u!114 &1814427101727165214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/New Event
-  m_EditorClassIdentifier: 
-  Path: event:/New Event
-  Guid:
-    Data1: -81097855
-    Data2: 1085345336
-    Data3: -1534021755
-    Data4: 1112954693
-  Banks:
-  - {fileID: 4397492604766340827}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &4397492604766340827
+--- !u!114 &7457040788635206783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,13 +107,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: ../../../../Documents/FMOD Studio/JuiceJam/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638104255658671418
+  Path: Assets/FMOD Banks/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638108473888487613
   FileSizes:
-  - Name: Desktop
-    Value: 1574
+  - Name: 
+    Value: 824
   Exists: 1
