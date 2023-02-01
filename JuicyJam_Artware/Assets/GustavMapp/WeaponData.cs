@@ -11,11 +11,16 @@ public class WeaponData : ScriptableObject
     [Header("Shooting Stats")]
     public float damage;
     public float maxDistance;
+    public bool isSemiAutomatic;
+
+    [Header("Weapon Sway")]
+    public float swaySmoothing;
+    public float swayMultiplier;
 
     [Header("Reloading Stats")]
     public int currentAmmo;
     public int magSize;
-    public float fireRate;
+    public float fireRatePerMinute;
     public float reloadTime;
     [HideInInspector]
     public bool reloading;

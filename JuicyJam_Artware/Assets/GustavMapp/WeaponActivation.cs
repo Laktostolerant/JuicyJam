@@ -8,16 +8,27 @@ public class WeaponActivation : MonoBehaviour
     public static Action weaponInput;
     public static Action cooldownInput;
 
-    [SerializeField] KeyCode reloadKey;
+    [SerializeField] WeaponData weaponData;
 
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (weaponData.isSemiAutomatic)
         {
-            weaponInput?.Invoke();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                weaponInput?.Invoke();
+            }
         }
 
-        if (Input.GetKeyDown(reloadKey))
+        if (!weaponData.isSemiAutomatic)
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                weaponInput?.Invoke();
+            }            
+        }
+
+        if (Input.GetButtonDown("Fire2"))
         {
             cooldownInput?.Invoke();
         }
