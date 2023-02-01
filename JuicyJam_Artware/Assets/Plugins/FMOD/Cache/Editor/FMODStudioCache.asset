@@ -1,10 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< HEAD
---- !u!114 &-7442653581384533627
-=======
---- !u!114 &-4618968960582664359
->>>>>>> 62666676241ca0bf1b498221a4e026bc74de7fc4
+--- !u!114 &-4450773445878754228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD Banks/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638108587039192528
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-1401894717565960619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18,24 +32,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Player_Dash
   Guid:
-    Data1: 1366363474
-    Data2: 1176680041
-    Data3: 1693656225
-    Data4: 1499000228
+    Data1: -657854416
+    Data2: 1297408318
+    Data3: -56497755
+    Data4: 963057361
   Banks:
-<<<<<<< HEAD
-  - {fileID: 843012448292336883}
-=======
-  - {fileID: 961155894988676859}
->>>>>>> 62666676241ca0bf1b498221a4e026bc74de7fc4
-  IsStream: 1
+  - {fileID: -4450773445878754228}
+  IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 1400
-<<<<<<< HEAD
+--- !u!114 &-940407249234397507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Effect_Glass_Shatter
+  m_EditorClassIdentifier: 
+  Path: event:/Effect_Glass_Shatter
+  Guid:
+    Data1: 1166603456
+    Data2: 1332514234
+    Data3: 903846066
+    Data4: 1353786380
+  Banks:
+  - {fileID: -4450773445878754228}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2380
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,67 +85,19 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 7287753503011539145}
-  - {fileID: 843012448292336883}
+  - {fileID: 7457040788635206783}
+  - {fileID: -4450773445878754228}
   EditorEvents:
-  - {fileID: 8818014584687263060}
-  - {fileID: -7442653581384533627}
-  - {fileID: 4094351721798011043}
+  - {fileID: -940407249234397507}
+  - {fileID: -1401894717565960619}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 843012448292336883}
+  - {fileID: -4450773445878754228}
   StringsBanks:
-  - {fileID: 7287753503011539145}
-  cacheTime: 638106859955193036
+  - {fileID: 7457040788635206783}
+  cacheTime: 638108587039226930
   cacheVersion: 131601
---- !u!114 &843012448292336883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: FMOD Project/SmashNGrab FMOD Project/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638106859955161853
-  FileSizes:
-  - Name: Desktop
-    Value: 124320
-  Exists: 1
---- !u!114 &4094351721798011043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Player_Breath
-  m_EditorClassIdentifier: 
-  Path: event:/Player_Breath
-  Guid:
-    Data1: -506660473
-    Data2: 1311910566
-    Data3: 1242470540
-    Data4: -237031843
-  Banks:
-  - {fileID: 843012448292336883}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 774
---- !u!114 &7287753503011539145
+--- !u!114 &7457040788635206783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,141 +109,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
-  Path: FMOD Project/SmashNGrab FMOD Project/Build/Desktop/Master.strings.bank
+  Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638106859955193036
+  lastModified: 638108587039226930
   FileSizes:
-  - Name: Desktop
-    Value: 844
+  - Name: 
+    Value: 824
   Exists: 1
---- !u!114 &8818014584687263060
-=======
---- !u!114 &-4349566491084243689
->>>>>>> 62666676241ca0bf1b498221a4e026bc74de7fc4
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Player_Step
-  m_EditorClassIdentifier: 
-  Path: event:/Player_Step
-  Guid:
-    Data1: 494746635
-    Data2: 1199595700
-    Data3: 393564350
-    Data4: -291763937
-  Banks:
-<<<<<<< HEAD
-  - {fileID: 843012448292336883}
-=======
-  - {fileID: 961155894988676859}
->>>>>>> 62666676241ca0bf1b498221a4e026bc74de7fc4
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1366
-<<<<<<< HEAD
-=======
---- !u!114 &-3570389668791791144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Player_Breath
-  m_EditorClassIdentifier: 
-  Path: event:/Player_Breath
-  Guid:
-    Data1: -506660473
-    Data2: 1311910566
-    Data3: 1242470540
-    Data4: -237031843
-  Banks:
-  - {fileID: 961155894988676859}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 774
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
-  m_Name: FMODStudioCache
-  m_EditorClassIdentifier: 
-  EditorBanks:
-  - {fileID: 6829410535587472735}
-  - {fileID: 961155894988676859}
-  EditorEvents:
-  - {fileID: -4349566491084243689}
-  - {fileID: -4618968960582664359}
-  - {fileID: -3570389668791791144}
-  EditorParameters: []
-  MasterBanks:
-  - {fileID: 961155894988676859}
-  StringsBanks:
-  - {fileID: 6829410535587472735}
-  cacheTime: 638107541031030020
-  cacheVersion: 131601
---- !u!114 &961155894988676859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: FMOD Project/SmashNGrab FMOD Project/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 638107541030977051
-  FileSizes:
-  - Name: Desktop
-    Value: 124320
-  Exists: 1
---- !u!114 &6829410535587472735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: 
-  Path: FMOD Project/SmashNGrab FMOD Project/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 638107541031030020
-  FileSizes:
-  - Name: Desktop
-    Value: 844
-  Exists: 1
->>>>>>> 62666676241ca0bf1b498221a4e026bc74de7fc4
