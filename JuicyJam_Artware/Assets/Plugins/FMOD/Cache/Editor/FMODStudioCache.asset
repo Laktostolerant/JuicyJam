@@ -96,7 +96,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638109330007731876
+  lastModified: 638109392246014252
   FileSizes: []
   Exists: 1
 --- !u!114 &-3992113469956317187
@@ -305,7 +305,7 @@ MonoBehaviour:
   - {fileID: -4450773445878754228}
   StringsBanks:
   - {fileID: 7457040788635206783}
-  cacheTime: 638109330007781813
+  cacheTime: 638109392246054629
   cacheVersion: 131601
 --- !u!114 &26344093933373058
 MonoBehaviour:
@@ -457,10 +457,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Player/Player_Jump
   Guid:
-    Data1: -2061838112
-    Data2: 1282321322
-    Data3: 1907734972
-    Data4: -1443829965
+    Data1: -641203732
+    Data2: 1085871479
+    Data3: -1334876994
+    Data4: -116734030
   Banks:
   - {fileID: -4450773445878754228}
   IsStream: 0
@@ -644,7 +644,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638109330007781813
+  lastModified: 638109392246054629
   FileSizes:
   - Name: 
     Value: 1808
