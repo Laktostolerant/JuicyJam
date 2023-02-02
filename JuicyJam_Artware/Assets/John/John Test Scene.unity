@@ -251,6 +251,8 @@ GameObject:
   - component: {fileID: 1805415541}
   - component: {fileID: 1805415542}
   - component: {fileID: 1805415543}
+  - component: {fileID: 1805415544}
+  - component: {fileID: 1805415545}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -374,3 +376,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452c44b022457904bacf586748054ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1805415544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805415536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1581511518
+      Data2: 1200139903
+      Data3: -1263534188
+      Data4: 567648603
+    Path: event:/Ambience/Ambience_Room
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1805415545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805415536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -897470330
+      Data2: 1232360799
+      Data3: -276217185
+      Data4: -388654520
+    Path: event:/Ambience/Ambience_Diamond
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
