@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour, IDamageable
 {
-    [SerializeField] float HP;
+    public float HP;
 
     public void Damage(float damage)
     {

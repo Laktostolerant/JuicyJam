@@ -384,11 +384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e558792c4bd6c7409cfc64bfcdd1799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoilX: -4
-  recoilY: 2
+  recoilX: -8
+  recoilY: 5
   recoilZ: 0.35
-  snapback: 6
-  returnSpeed: 9
+  snapback: 16
+  returnSpeed: 16
 --- !u!1 &747056859
 GameObject:
   m_ObjectHideFlags: 0

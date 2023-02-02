@@ -22,7 +22,6 @@ public class Weapon : MonoBehaviour
         WeaponActivation.cooldownInput += StartCooldown;
         weaponData.currentAmmo = weaponData.magSize;
         WeaponProp = gameObject.transform.Find(weaponModelName).gameObject;
-        Recoil = transform.Find("CameraRecoil").GetComponent<WeaponRecoil>();
     }
 
     public void StartCooldown()
@@ -80,7 +79,7 @@ public class Weapon : MonoBehaviour
     private void OnWeaponActivation()
     {
         GameObject Flash = Instantiate(MuzzleFlash, Muzzle);
-        Destroy(Flash, 0.05f);
+        Destroy(Flash, 0.03f);
 
         Recoil.RecoilFire();
     }

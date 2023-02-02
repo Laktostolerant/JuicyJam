@@ -13,7 +13,14 @@ public class WeaponData : ScriptableObject
     public float maxDistance;
     public bool isSemiAutomatic;
 
-    [Header("Weapon Sway")]
+    [Header("Recoil Stats")]
+    public float recoilX;
+    public float recoilY;
+    public float recoilZ;
+    public float snapback;
+    public float returnSpeed;
+
+    [Header("Weapon Sway Stats")]
     public float swaySmoothing;
     public float swayMultiplier;
 

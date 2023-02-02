@@ -7,16 +7,22 @@ public class WeaponRecoil : MonoBehaviour
     Vector3 currentRotation;
     Vector3 targetRotation;
 
-    [SerializeField] float recoilX;
-    [SerializeField] float recoilY;
-    [SerializeField] float recoilZ;
+    float recoilX;
+    float recoilY;
+    float recoilZ;
 
-    [SerializeField] float snapback;
-    [SerializeField] float returnSpeed;
+    float snapback;
+    float returnSpeed;
+
+    [SerializeField] WeaponData weaponData;
 
     void Start()
     {
-        
+        recoilX = -weaponData.recoilX;
+        recoilY = weaponData.recoilY;
+        recoilZ = weaponData.recoilZ;
+        snapback = weaponData.snapback;
+        returnSpeed = weaponData.returnSpeed;
     }
 
     void Update()
