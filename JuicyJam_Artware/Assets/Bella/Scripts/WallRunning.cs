@@ -180,6 +180,7 @@ public class WallRunning : MonoBehaviour
     private void WallJump()
     {
         // enter exiting wall state
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Wall_Jump", gameObject);
         exitingWall = true;
         exitWallTimer = exitWallTime;
 
