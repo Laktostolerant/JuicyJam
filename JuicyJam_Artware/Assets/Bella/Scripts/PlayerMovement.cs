@@ -290,6 +290,7 @@ public class PlayerMovement : MonoBehaviour
             //Makes sure to only play the stepping sound when the player is moving
             if (verticalInput != 0 || horizontalInput != 0)
             {
+
                 if (state == MovementState.walking)
                 {
                     FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step", gameObject);
@@ -297,6 +298,10 @@ public class PlayerMovement : MonoBehaviour
                 else if (state == MovementState.sprinting)
                 {
                     FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 2", gameObject);
+                }
+                else if(state == MovementState.crouching)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 4", gameObject);
                 }
             }
         }
