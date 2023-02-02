@@ -6,13 +6,17 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] WeaponData weaponData;
+    [SerializeField] WeaponData melee;
     [SerializeField] Transform Muzzle;
+    [SerializeField] Camera cam;
     [SerializeField] string weaponModelName;
 
     float timeSinceLastActivation;
+    float timeSinceMelee;
 
     GameObject WeaponProp;
     [SerializeField] GameObject MuzzleFlash;
+    [SerializeField] GameObject BulletHole;
 
     [SerializeField] WeaponRecoil Recoil;
 
@@ -55,11 +59,14 @@ public class Weapon : MonoBehaviour
         {
             if (CanActivate())
             {
-                if (Physics.Raycast(Muzzle.position, transform.forward, out RaycastHit hitInfo, weaponData.maxDistance))
+                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitInfo, weaponData.maxDistance))
                 {
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                     damageable?.Damage(weaponData.damage);
-                    Debug.Log(hitInfo.transform.name);
+
+                    GameObject obj = Instantiate(BulletHole, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                    obj.transform.position += obj.transform.position / -1000;
+                    Destroy(obj, 3f);
                 }
 
                 weaponData.currentAmmo--;

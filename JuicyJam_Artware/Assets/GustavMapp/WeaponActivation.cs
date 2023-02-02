@@ -7,6 +7,7 @@ public class WeaponActivation : MonoBehaviour
 {
     public static Action weaponInput;
     public static Action cooldownInput;
+    public static Action meleeInput;
 
     [SerializeField] WeaponData weaponData;
 
@@ -31,6 +32,11 @@ public class WeaponActivation : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             cooldownInput?.Invoke();
+        }
+
+        if (Input.GetButtonDown("Fire3"))
+        {
+            meleeInput?.Invoke();
         }
     }
 }
