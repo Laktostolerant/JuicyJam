@@ -50,8 +50,10 @@ public class Dashing : MonoBehaviour
 
     private void Dash()
     {
+        
         if (dashCooldownTimer > 0) return;
         else dashCooldownTimer = dashCooldown;
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Dash", gameObject);
 
         pm.dashing = true;
         pm.maxYSpeed = maxDashYSpeed;

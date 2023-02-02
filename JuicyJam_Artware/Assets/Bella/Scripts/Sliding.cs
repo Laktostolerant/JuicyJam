@@ -53,6 +53,7 @@ public class Sliding : MonoBehaviour
 
     private void StartSlide()
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Slide", gameObject);
         playerMovement.sliding = true;
 
         playerObject.localScale = new Vector3(playerObject.localScale.x, slideYScale, playerObject.localScale.z);
