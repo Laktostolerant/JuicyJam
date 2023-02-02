@@ -9,27 +9,30 @@ public class AmoController : MonoBehaviour
     [SerializeField]
     private Text amoCounter;
     [SerializeField]
-    private Image amoBar;
+    private Slider amoBar;
     private int currentAmo = 30;
     private int fullAmo = 90;
-    public float fullBar=1f;
+
 
     
 
     // Update is called once per frame
     void Update()
     {
-
-        
+        amoBar.value = fullAmo;
+        if (Input.GetKeyDown(KeyCode.T) )
+        {
+            fullAmo += 30;
+           
+        }
        
         if (Input.GetKeyDown(KeyCode.M) && currentAmo!=0)
         {
             currentAmo -= 10;
 
         }
-        amoCounter.text = currentAmo + "/" + fullAmo;
-        amoBar.fillAmount = fullBar;
-        fullBar = fullAmo;
+        amoCounter.text = currentAmo + "/" + fullAmo + " ";
+        
 
 
         if (Input.GetKeyDown(KeyCode.R) || currentAmo == 0)
@@ -50,7 +53,7 @@ public class AmoController : MonoBehaviour
         if (fullAmo >= reason)
         {
             fullAmo = fullAmo - reason;
-           
+            
             currentAmo = 30;
         }
         else
@@ -59,8 +62,8 @@ public class AmoController : MonoBehaviour
             currentAmo = currentAmo + fullAmo;
             fullAmo = 0;
         }
-
       
+
 
 
     }
