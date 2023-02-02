@@ -23,7 +23,7 @@ MonoBehaviour:
   returnSpeed: 10
   swaySmoothing: 20
   swayMultiplier: 4
-  currentAmmo: 15
+  currentAmmo: 14
   magSize: 15
   fireRatePerMinute: 600
   reloadTime: 2
