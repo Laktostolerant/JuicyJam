@@ -6,19 +6,29 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] WeaponData weaponData;
-    [SerializeField] Transform muzzleFlash;
+    [SerializeField] Transform Muzzle;
+    [SerializeField] Camera cam;
+    [SerializeField] string weaponModelName;
 
     float timeSinceLastActivation;
+
+    GameObject WeaponProp;
+    [SerializeField] GameObject MuzzleFlash;
+    [SerializeField] GameObject BulletHole;
+
+    [SerializeField] WeaponRecoil Recoil;
 
     private void Start()
     {
         WeaponActivation.weaponInput += ActivateWeapon;
         WeaponActivation.cooldownInput += StartCooldown;
+        weaponData.currentAmmo = weaponData.magSize;
+        WeaponProp = gameObject.transform.Find(weaponModelName).gameObject;
     }
 
     public void StartCooldown()
     {
-        if (!weaponData.reloading)
+        if (!weaponData.reloading && weaponData.currentAmmo != weaponData.magSize)
         {
             StartCoroutine(CoolDown());
         }
@@ -28,18 +38,18 @@ public class Weapon : MonoBehaviour
     {
         weaponData.reloading = true;
 
-        Debug.Log("Reloading...");
+        WeaponProp.SetActive(false);
 
         yield return new WaitForSeconds(weaponData.reloadTime);
 
-        Debug.Log("Reloaded!");
+        WeaponProp.SetActive(true);
 
         weaponData.currentAmmo = weaponData.magSize;
 
         weaponData.reloading = false;
     }
 
-    private bool CanActivate() => !weaponData.reloading && timeSinceLastActivation > 1f/(weaponData.fireRate / 60f);
+    private bool CanActivate() => !weaponData.reloading && timeSinceLastActivation > 1f/(weaponData.fireRatePerMinute / 60f);
 
     public void ActivateWeapon()
     {
@@ -47,11 +57,14 @@ public class Weapon : MonoBehaviour
         {
             if (CanActivate())
             {
-                if (Physics.Raycast(muzzleFlash.position, transform.forward, out RaycastHit hitInfo, weaponData.maxDistance))
+                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitInfo, weaponData.maxDistance))
                 {
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                     damageable?.Damage(weaponData.damage);
-                    Debug.Log(hitInfo.transform.name);
+
+                    GameObject obj = Instantiate(BulletHole, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+                    obj.transform.position += obj.transform.position / -1000;
+                    Destroy(obj, 3f);
                 }
 
                 weaponData.currentAmmo--;
@@ -65,11 +78,27 @@ public class Weapon : MonoBehaviour
     {
         timeSinceLastActivation += Time.deltaTime;
 
-        Debug.DrawRay(muzzleFlash.position, muzzleFlash.forward, Color.green);
+        WeaponSway();
     }
 
     private void OnWeaponActivation()
     {
-        throw new NotImplementedException();
+        GameObject Flash = Instantiate(MuzzleFlash, Muzzle);
+        Destroy(Flash, 0.03f);
+
+        Recoil.RecoilFire();
+    }
+
+    void WeaponSway()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * weaponData.swayMultiplier;
+        float mouseY = Input.GetAxis("Mouse Y") * weaponData.swayMultiplier;
+
+        Quaternion rotationX = Quaternion.AngleAxis(mouseX, Vector3.right);
+        Quaternion rotationY = Quaternion.AngleAxis(mouseY, Vector3.up);
+
+        Quaternion targetRotation = rotationX * rotationY;
+
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, weaponData.swaySmoothing * Time.deltaTime);
     }
 }

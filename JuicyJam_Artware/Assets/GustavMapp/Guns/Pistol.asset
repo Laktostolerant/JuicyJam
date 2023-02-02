@@ -15,8 +15,16 @@ MonoBehaviour:
   name: Pistol
   damage: 14
   maxDistance: 10000
+  isSemiAutomatic: 1
+  recoilX: 6
+  recoilY: 1
+  recoilZ: 0.3
+  snapback: 20
+  returnSpeed: 10
+  swaySmoothing: 20
+  swayMultiplier: 4
   currentAmmo: 15
   magSize: 15
-  fireRate: 60
+  fireRatePerMinute: 600
   reloadTime: 2
   reloading: 0
