@@ -6,13 +6,11 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] WeaponData weaponData;
-    [SerializeField] WeaponData melee;
     [SerializeField] Transform Muzzle;
     [SerializeField] Camera cam;
     [SerializeField] string weaponModelName;
 
     float timeSinceLastActivation;
-    float timeSinceMelee;
 
     GameObject WeaponProp;
     [SerializeField] GameObject MuzzleFlash;
