@@ -252,10 +252,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (state == MovementState.dashing)
             {
+                Debug.Log("LERP DASH");
                 time += Time.deltaTime * dashSpeedChangeFactor;
             }
             else
             {
+                Debug.Log("ELSE LERP");
                 time += Time.deltaTime * speedIncreaseMultiplier;
             }
 
@@ -296,10 +298,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 2", gameObject);
                 }
-                else if(state == MovementState.wallRunning)
-                {
-                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 3", gameObject);
-                }
             }
         }
         // in air
@@ -307,7 +305,14 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(40f * airMultiplier * moveSpeed * moveDirection.normalized, ForceMode.Force);
 
         // Turn gravity off while on a slope
-        if (!wallrunning) rb.useGravity = !OnSlope();
+        if (!wallrunning)
+        {
+            rb.useGravity = !OnSlope();
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 3", gameObject);
+        }
     }
 
     private void SpeedControl()
