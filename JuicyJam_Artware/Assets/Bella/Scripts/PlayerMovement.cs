@@ -281,6 +281,19 @@ public class PlayerMovement : MonoBehaviour
         // on slope
         if (OnSlope() && !exitingSlope)
         {
+            if (state == MovementState.walking)
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step", gameObject);
+            }
+            else if (state == MovementState.sprinting)
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 2", gameObject);
+            }
+            else if (state == MovementState.crouching)
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 4", gameObject);
+            }
+
             rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
 
             if (rb.velocity.y > 0)
