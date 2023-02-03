@@ -18,9 +18,6 @@ public class WeaponRecoil : MonoBehaviour
     float snapback;
     float returnSpeed;
 
-    float snapbackM;
-    float returnSpeedM;
-
     [SerializeField] WeaponData weaponData;
     [SerializeField] WeaponData meleeData;
 
@@ -35,8 +32,6 @@ public class WeaponRecoil : MonoBehaviour
         recoilXM = -meleeData.recoilX;
         recoilYM = meleeData.recoilY;
         recoilZM = meleeData.recoilZ;
-        snapbackM = meleeData.snapback;
-        returnSpeedM = meleeData.returnSpeed;
     }
 
     void Update()

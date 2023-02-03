@@ -23,12 +23,22 @@ public class WeaponReloadBar : MonoBehaviour
         reloadTime = weaponData.reloadTime;
         remainingTime = reloadTime;
         Bar.SetActive(false);
-        AmmoCounter.SetActive(true);
+        AmmoCounter.SetActive(false);
         MaxAmmo.text = weaponData.magSize.ToString();
     }
 
     void Update()
     {
+        if (!ShatteredCaase.shatteredTheDiamondCase)
+        {
+            AmmoCounter.SetActive(false);
+        }
+
+        if (ShatteredCaase.shatteredTheDiamondCase)
+        {
+            AmmoCounter.SetActive(true);
+        }
+
         ammoRemaining = weaponData.currentAmmo;
 
         AmmoCount.text = ammoRemaining.ToString();

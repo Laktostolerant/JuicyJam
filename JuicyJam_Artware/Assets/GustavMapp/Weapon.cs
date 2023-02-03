@@ -24,6 +24,7 @@ public class Weapon : MonoBehaviour
         WeaponActivation.cooldownInput += StartCooldown;
         weaponData.currentAmmo = weaponData.magSize;
         WeaponProp = gameObject.transform.Find(weaponModelName).gameObject;
+        weaponData.reloading = false;
     }
 
     public void StartCooldown()
