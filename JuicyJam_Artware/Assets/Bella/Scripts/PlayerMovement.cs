@@ -93,8 +93,12 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Ground check
+        bool groundedCopy = isGrounded;
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-
+        if(!groundedCopy && isGrounded)
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Landing", gameObject);
+        }
         MyInput();
         SpeedControl();
         StateHandler();
