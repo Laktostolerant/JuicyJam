@@ -1,0 +1,7 @@
+
+*.log
+*.asset
+*.log
+JuicyJam_Artware/fmod_editor.log
+JuicyJam_Artware/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+*.log

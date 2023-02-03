@@ -93,10 +93,14 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Ground check
+        bool groundedCopy = isGrounded;
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-
+        if(!groundedCopy && isGrounded)
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Landing", gameObject);
+        }
         MyInput();
-        SpeedControl();   
+        SpeedControl();
         StateHandler();
 
         // Handle Drag
@@ -104,7 +108,8 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
-        
+
+        Debug.Log(state);
     }
 
     private void FixedUpdate()
@@ -120,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
         // Jump
         if (Input.GetKey(jumpKey) && readyToJump && isGrounded)
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Jump", gameObject);
             readyToJump = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
@@ -145,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
         if (dashing)
         {
             state = MovementState.dashing;
-            desiredMoveSpeed = dashSpeed;            
+            desiredMoveSpeed = dashSpeed;
         }
 
         // State - WallRunning
@@ -194,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
             if (desiredMoveSpeed < sprintSpeed)
                 desiredMoveSpeed = walkSpeed;
             else
-                desiredMoveSpeed= sprintSpeed;
+                desiredMoveSpeed = sprintSpeed;
 
         }
 
@@ -206,11 +212,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            moveSpeed= desiredMoveSpeed;
+            moveSpeed = desiredMoveSpeed;
         }
 
         bool desiredMoveSpeedHasChanged = desiredMoveSpeed != lastDesiredMoveSpeed;
-        if(lastState == MovementState.dashing) keepMomentum = true;
+        if (lastState == MovementState.dashing) keepMomentum = true;
 
         if (desiredMoveSpeedHasChanged)
         {
@@ -229,13 +235,13 @@ public class PlayerMovement : MonoBehaviour
         lastDesiredMoveSpeed = desiredMoveSpeed;
         lastState = state;
     }
-   
+
     private IEnumerator SmoothlyLerpMoveSpeed()
     {
         // Smoothly lerp movementSpeed to desired value
         float time = 0;
         float differance = Math.Abs(desiredMoveSpeed - moveSpeed);
-        float startValue = moveSpeed;       
+        float startValue = moveSpeed;
 
         while (time < differance)
         {
@@ -248,15 +254,17 @@ public class PlayerMovement : MonoBehaviour
 
                 time += Time.deltaTime * speedIncreaseMultiplier * slopeIncreaseMultiplier * slopeAngleIncrease;
             }
-            else if(state == MovementState.dashing)
+            else if (state == MovementState.dashing)
             {
+                Debug.Log("LERP DASH");
                 time += Time.deltaTime * dashSpeedChangeFactor;
             }
             else
             {
+                Debug.Log("ELSE LERP");
                 time += Time.deltaTime * speedIncreaseMultiplier;
             }
-            
+
             yield return null;
         }
 
@@ -268,25 +276,65 @@ public class PlayerMovement : MonoBehaviour
         if (state == MovementState.dashing) return;
 
         // Movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right* horizontalInput;
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on slope
         if (OnSlope() && !exitingSlope)
         {
+            if (state == MovementState.walking)
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step", gameObject);
+            }
+            else if (state == MovementState.sprinting)
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 2", gameObject);
+            }
+            else if (state == MovementState.crouching)
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 4", gameObject);
+            }
+
             rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
 
             if (rb.velocity.y > 0)
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
         }
         // on ground
-        else if(isGrounded)
+        else if (isGrounded)
+        {
             rb.AddForce(10f * moveSpeed * moveDirection.normalized, ForceMode.Force);
+
+            //Makes sure to only play the stepping sound when the player is moving
+            if (verticalInput != 0 || horizontalInput != 0)
+            {
+
+                if (state == MovementState.walking)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step", gameObject);
+                }
+                else if (state == MovementState.sprinting)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 2", gameObject);
+                }
+                else if(state == MovementState.crouching)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 4", gameObject);
+                }
+            }
+        }
         // in air
-        else if(!isGrounded)
+        else if (!isGrounded)
             rb.AddForce(40f * airMultiplier * moveSpeed * moveDirection.normalized, ForceMode.Force);
 
         // Turn gravity off while on a slope
-        if(!wallrunning) rb.useGravity = !OnSlope();
+        if (!wallrunning)
+        {
+            rb.useGravity = !OnSlope();
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 3", gameObject);
+        }
     }
 
     private void SpeedControl()
@@ -318,7 +366,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        exitingSlope= true;
+        exitingSlope = true;
 
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -327,8 +375,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ResetJump()
     {
+        //Is not when you land but when the jump has been reset
+        //FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Landing", gameObject);
         readyToJump = true;
-        exitingSlope= false;
+        exitingSlope = false;
     }
 
     public bool OnSlope()

@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8623d7c1aa6db0246ad87b47feb7fa49, type: 3}
   m_Name: Melee
   m_EditorClassIdentifier: 
-  name: 
-  damage: 0
-  maxDistance: 0
-  isSemiAutomatic: 0
-  recoilX: 0
-  recoilY: 0
-  recoilZ: 0
-  snapback: 0
-  returnSpeed: 0
-  swaySmoothing: 0
-  swayMultiplier: 0
-  currentAmmo: 0
-  magSize: 0
-  fireRatePerMinute: 0
-  reloadTime: 0
+  name: Melee
+  damage: 69
+  maxDistance: 2
+  isSemiAutomatic: 1
+  recoilX: -30
+  recoilY: 30
+  recoilZ: 40
+  snapback: 20
+  returnSpeed: 20
+  swaySmoothing: 1
+  swayMultiplier: 1
+  currentAmmo: 1000
+  magSize: 1000
+  fireRatePerMinute: 60
+  reloadTime: 1
   reloading: 0
