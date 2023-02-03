@@ -83,7 +83,6 @@ public class Weapon : MonoBehaviour
 
     private void OnWeaponActivation()
     {
-        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Shot", gameObject);
         GameObject Flash = Instantiate(MuzzleFlash, Muzzle);
         Destroy(Flash, 0.03f);
 
