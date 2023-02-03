@@ -821,6 +821,7 @@ GameObject:
   - component: {fileID: 6943259669829382702}
   - component: {fileID: 1934157807090696562}
   - component: {fileID: 6522353616733223087}
+  - component: {fileID: 2081339178226301972}
   m_Layer: 0
   m_Name: Dimond_case 1
   m_TagString: Untagged
@@ -897,6 +898,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2081339178226301972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6568362381525429597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -897470330
+      Data2: 1232360799
+      Data3: -276217185
+      Data4: -388654520
+    Path: event:/Ambience/Ambience_Diamond
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 1
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7110618115502863433
 GameObject:
   m_ObjectHideFlags: 0
