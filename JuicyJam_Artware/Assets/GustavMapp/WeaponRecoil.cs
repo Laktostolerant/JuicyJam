@@ -11,10 +11,18 @@ public class WeaponRecoil : MonoBehaviour
     float recoilY;
     float recoilZ;
 
+    float recoilXM;
+    float recoilYM;
+    float recoilZM;
+
     float snapback;
     float returnSpeed;
 
+    float snapbackM;
+    float returnSpeedM;
+
     [SerializeField] WeaponData weaponData;
+    [SerializeField] WeaponData meleeData;
 
     void Start()
     {
@@ -23,17 +31,33 @@ public class WeaponRecoil : MonoBehaviour
         recoilZ = weaponData.recoilZ;
         snapback = weaponData.snapback;
         returnSpeed = weaponData.returnSpeed;
+
+        recoilXM = -meleeData.recoilX;
+        recoilYM = meleeData.recoilY;
+        recoilZM = meleeData.recoilZ;
+        snapbackM = meleeData.snapback;
+        returnSpeedM = meleeData.returnSpeed;
     }
 
     void Update()
+    {
+        RecoilManager();
+    }
+
+    public void RecoilFire()
+    {
+        targetRotation += new Vector3(recoilX, Random.Range(-recoilY, recoilY), Random.Range(-recoilZ, recoilZ));
+    }
+
+    void RecoilManager()
     {
         targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, returnSpeed * Time.deltaTime);
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, snapback * Time.deltaTime);
         transform.localRotation = Quaternion.Euler(currentRotation);
     }
 
-    public void RecoilFire()
+    public void RecoilMelee()
     {
-        targetRotation += new Vector3(recoilX, Random.Range(-recoilY, recoilY), Random.Range(-recoilZ, recoilZ));
+        targetRotation += new Vector3(recoilXM, Random.Range(-recoilYM, recoilYM), Random.Range(-recoilZM, recoilZM));
     }
 }

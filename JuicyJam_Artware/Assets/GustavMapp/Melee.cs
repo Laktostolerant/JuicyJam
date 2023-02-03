@@ -5,6 +5,7 @@ using UnityEngine;
 public class Melee : MonoBehaviour
 {
     [SerializeField] WeaponData melee;
+    [SerializeField] WeaponRecoil Recoil;
     Camera cam;
     float timeSinceLastActivation;
 
@@ -30,6 +31,7 @@ public class Melee : MonoBehaviour
                 IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                 damageable?.Damage(melee.damage);
                 timeSinceLastActivation = 0;
+                Recoil.RecoilMelee();
             }
         }
     }
