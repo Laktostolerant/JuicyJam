@@ -17,10 +17,17 @@ public class SceneChange : MonoBehaviour
 
         if(sceneNumber == 1)
         {
+            AudioManager.Instance.Stop(AudioManager.Instance.MainTheme);
+            AudioManager.Instance.Stop(AudioManager.Instance.PianoTheme);
+            AudioManager.Instance.Stop(AudioManager.Instance.ChaosTheme);
+            AudioManager.Instance.Play(AudioManager.Instance.ChaosTheme);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Death_Restart");
         }
         else
         {
+            AudioManager.Instance.Stop(AudioManager.Instance.MainTheme);
+            AudioManager.Instance.Stop(AudioManager.Instance.PianoTheme);
+            AudioManager.Instance.Stop(AudioManager.Instance.ChaosTheme);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Click");
         }
 
