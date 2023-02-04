@@ -356,7 +356,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111189201803158
+  lastModified: 638111199229908925
   FileSizes: []
   Exists: 1
 --- !u!114 &-7454431863779596402
@@ -699,7 +699,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111189201883170
+  lastModified: 638111199229978960
   FileSizes:
   - Name: 
     Value: 2756
@@ -826,14 +826,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/UI/UI_Death_Restart
   Guid:
-    Data1: 1026914079
-    Data2: 1277986888
-    Data3: -1244327501
-    Data4: 575442616
+    Data1: -594996450
+    Data2: 1339722727
+    Data3: 27303341
+    Data4: 1167955295
   Banks:
   - {fileID: -7589652175711926099}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   - {fileID: -7589652175711926099}
   StringsBanks:
   - {fileID: -4444980115835805997}
-  cacheTime: 638111189201883170
+  cacheTime: 638111199229978960
   cacheVersion: 131601
 --- !u!114 &115440389291865794
 MonoBehaviour:
@@ -2010,14 +2010,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/UI/UI_Hover
   Guid:
-    Data1: -310815071
-    Data2: 1196021931
-    Data3: -406622801
-    Data4: 1608020821
+    Data1: -2005863443
+    Data2: 1211002766
+    Data3: -1274626685
+    Data4: -2057188719
   Banks:
   - {fileID: -7589652175711926099}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -2118,14 +2118,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/UI/UI_Click
   Guid:
-    Data1: -1590386411
-    Data2: 1159984343
-    Data3: 504084872
-    Data4: 2004199864
+    Data1: -1706374490
+    Data2: 1179721336
+    Data3: -1272053851
+    Data4: -1029442285
   Banks:
   - {fileID: -7589652175711926099}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1

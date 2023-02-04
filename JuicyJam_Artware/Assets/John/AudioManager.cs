@@ -32,4 +32,19 @@ public class AudioManager : MonoBehaviour
     {
         musicToDeactivate.SetActive(false);
     }
+
+    public void PlayUIClick()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Click");
+    }
+
+    public void PlayUIHover()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Hover");
+    }
+
+    public void PlayRestart()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Death_Restart");
+    }
 }

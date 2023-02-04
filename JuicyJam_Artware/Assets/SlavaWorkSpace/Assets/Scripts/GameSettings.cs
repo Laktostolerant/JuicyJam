@@ -42,6 +42,7 @@ public class GameSettings : MonoBehaviour
 
     public void CloseButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Click");
         optionsPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
