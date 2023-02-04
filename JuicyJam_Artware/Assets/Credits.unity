@@ -194,8 +194,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\r\nDesigners:\r\nPlayer Weapons Programmer - Gustav Eriksson\nPlayer
-    Movement Programmer - Isabelle H\xF6ljer Heiskanen\nUI Programmer - Svyatoslav
+  m_Text: "\r\nDesigners:\r\nWeapon System Programmer - Gustav Eriksson\nPlayer Movement
+    Programmer / UI Programmer - Isabelle H\xF6ljer Heiskanen\nUI Programmer - Svyatoslav
     Lapshin\nSound Design and Implementation - John Lundstr\xF6m\nLevel Designer
     - Ben Schelhaas\nAI Programmer - Tiger Sj\xF6man Martin\n\r\nArtists :\r\n3D-Artist
     Weapons - Sebastian Bertzell\n3D-Artist Props - Lisa Karlsson\n3D-Artist Map
