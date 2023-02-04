@@ -8,13 +8,67 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
     public static bool shatteredTheDiamondCase;
     [SerializeField] ScreenShake screenShake;
     bool hasShaked;
+    [SerializeField] GameObject PickUpText;
+    [SerializeField] GameObject GetOutText;
+    bool hasPickedUpDiamond;
+    [SerializeField] SphereCollider pickUpCollider;
+    bool textTurnOff;
+    bool pickUpTextActive;
+    [SerializeField] GameObject diamond;
 
     void Start()
     {
-        rigidbodyAreas= GetComponentsInChildren<Rigidbody>();        
+        rigidbodyAreas= GetComponentsInChildren<Rigidbody>();   
+        pickUpCollider.enabled = false;
+        PickUpText.SetActive(false);
+        GetOutText.SetActive(false);
     }
 
     public float HP;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F) && pickUpTextActive)
+        {
+            PickUpText.SetActive(false);
+            hasPickedUpDiamond = true;
+            diamond.SetActive(false);
+        }
+
+        if (hasShaked)
+        {
+            pickUpCollider.enabled = true;
+        }
+
+        if (hasPickedUpDiamond && !textTurnOff)
+        {
+            textTurnOff = true; 
+            GetOutText.SetActive(true);
+            StartCoroutine(TextTimer());
+        }
+
+    }
+
+    IEnumerator TextTimer()
+    {
+        yield return new WaitForSeconds(3);
+        GetOutText.SetActive(false);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && !hasPickedUpDiamond)
+        {
+            PickUpText.SetActive(true);
+            pickUpTextActive = true;
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        pickUpTextActive = false;
+    }
 
     public void Damage(float damage)
     {
@@ -25,7 +79,6 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
         {
             for (int i = 0; i < rigidbodyAreas.Length; i++)
             {
-                Debug.Log(rigidbodyAreas[i].name);
                 rigidbodyAreas[i].GetComponent<Rigidbody>().AddExplosionForce(Random.Range(40f, 60f), 
                     -transform.forward, Random.Range(20f, 40f), Random.Range(2f, 3f), ForceMode.Impulse);
 
