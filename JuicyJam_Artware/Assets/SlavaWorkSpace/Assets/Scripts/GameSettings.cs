@@ -25,6 +25,7 @@ public class GameSettings : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
+            AudioManager.Instance.Play(AudioManager.Instance.EQSnapShot);
             optionsPanel.SetActive(true);
             Time.timeScale = 0;
             Cursor.lockState = CursorLockMode.None;
@@ -42,6 +43,7 @@ public class GameSettings : MonoBehaviour
 
     public void CloseButton()
     {
+        AudioManager.Instance.Stop(AudioManager.Instance.EQSnapShot);
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Click");
         optionsPanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
