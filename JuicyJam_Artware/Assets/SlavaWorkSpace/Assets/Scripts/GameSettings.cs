@@ -7,8 +7,8 @@ public class GameSettings : MonoBehaviour
     [SerializeField] CameraController Camera;
     [SerializeField]
     private GameObject optionsPanel;
-    bool isPaused;
-  
+    public static bool isPaused;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)

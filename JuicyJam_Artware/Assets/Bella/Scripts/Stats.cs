@@ -9,6 +9,9 @@ public class Stats : MonoBehaviour
     public GameObject GameOverCanvas;
 
     [SerializeField] CameraController Camera;
+    [SerializeField] GameObject Player;
+    [SerializeField] WeaponActivation weaponActivation;
+    public static bool isDead;
 
     private void Update()
     {
@@ -25,8 +28,12 @@ public class Stats : MonoBehaviour
         GameOverCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Time.timeScale = 0;
         Camera.enabled = false;
+        Player.GetComponent<PlayerMovement>().enabled = false;
+        Player.GetComponent<Dashing>().enabled = false;
+        Player.GetComponent<Sliding>().enabled = false;
+        weaponActivation.enabled = false;
+        isDead = true;
         // SOMETHING MORE?
     }
 

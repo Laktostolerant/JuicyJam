@@ -9,11 +9,11 @@ public class SceneChange : MonoBehaviour
     [SerializeField] CameraController Camera;
     public void ChangeScene(int sceneNumber)
     {
-        SceneManager.LoadScene(sceneNumber);
         Time.timeScale = 1;
         Camera.enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        SceneManager.LoadScene(sceneNumber);
     }
     public void ExitFromGame()
     {
