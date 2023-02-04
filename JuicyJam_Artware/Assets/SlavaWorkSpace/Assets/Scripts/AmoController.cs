@@ -9,15 +9,14 @@ public class AmoController : MonoBehaviour
     [SerializeField]
     private Text ammoCounter;
     [SerializeField]
-    private Slider ammoBar;
+    private Slider ammoSlider;
     private int currentAmmo;
     private int fullAmmo;
-    GameObject AmmoSlider;
+    [SerializeField] GameObject AmmoGameObject;
     [SerializeField] WeaponData weaponData;
 
     private void Start()
     {
-        AmmoSlider = gameObject.transform.Find("Ammo").gameObject;
         fullAmmo = weaponData.magSize;
     }
 
@@ -25,19 +24,16 @@ public class AmoController : MonoBehaviour
     void Update()
     {
         currentAmmo = weaponData.currentAmmo;
-        ammoBar.value = currentAmmo;
-        if (Input.GetKeyDown(KeyCode.T) )
-        {
-            fullAmmo += 30;
-           
-        }
-       
-        if (Input.GetKeyDown(KeyCode.M) && currentAmmo!=0)
-        {
-            currentAmmo -= 10;
-
-        }
+        ammoSlider.value = currentAmmo;
         ammoCounter.text = currentAmmo + "/" + fullAmmo + " ";
-    }
-    
+
+        if (weaponData.reloading)
+        {
+            AmmoGameObject.SetActive(false);
+        }
+        else
+        {
+            AmmoGameObject.SetActive(true);            
+        }
+    }    
 }
