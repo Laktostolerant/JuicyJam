@@ -95,7 +95,7 @@ public class Dashing : MonoBehaviour
         pm.dashing = false;
         pm.maxYSpeed = 0;
 
-        camController.DoFov(60f);
+        camController.DoFov(80f);
 
         if (disableGravity)
             rb.useGravity = true;

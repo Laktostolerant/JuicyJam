@@ -7,66 +7,33 @@ using UnityEngine.UI;
 public class AmoController : MonoBehaviour
 {
     [SerializeField]
-    private Text amoCounter;
+    private Text ammoCounter;
     [SerializeField]
-    private Slider amoBar;
-    private int currentAmo = 30;
-    private int fullAmo = 90;
+    private Slider ammoSlider;
+    private int currentAmmo;
+    private int fullAmmo;
+    [SerializeField] GameObject AmmoGameObject;
+    [SerializeField] WeaponData weaponData;
 
-
-    
+    private void Start()
+    {
+        fullAmmo = weaponData.magSize;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        amoBar.value = fullAmo;
-        if (Input.GetKeyDown(KeyCode.T) )
+        currentAmmo = weaponData.currentAmmo;
+        ammoSlider.value = currentAmmo;
+        ammoCounter.text = currentAmmo + "/" + fullAmmo + " ";
+
+        if (weaponData.reloading)
         {
-            fullAmo += 30;
-           
-        }
-       
-        if (Input.GetKeyDown(KeyCode.M) && currentAmo!=0)
-        {
-            currentAmo -= 10;
-
-        }
-        amoCounter.text = currentAmo + "/" + fullAmo + " ";
-        
-
-
-        if (Input.GetKeyDown(KeyCode.R) || currentAmo == 0)
-        {
-            
-            Reload();
-            
-
-
-        }
-
-    }
-
-    public void Reload()
-    {
-        int reason = 30 - currentAmo;
-
-        if (fullAmo >= reason)
-        {
-            fullAmo = fullAmo - reason;
-            
-            currentAmo = 30;
+            AmmoGameObject.SetActive(false);
         }
         else
         {
-
-            currentAmo = currentAmo + fullAmo;
-            fullAmo = 0;
+            AmmoGameObject.SetActive(true);            
         }
-      
-
-
-
-    }
-
-    
+    }    
 }

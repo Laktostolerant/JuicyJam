@@ -6,6 +6,12 @@ public class Stats : MonoBehaviour
 {
     [Header("Stats")]
     public float health;
+    public GameObject GameOverCanvas;
+
+    [SerializeField] CameraController Camera;
+    [SerializeField] GameObject Player;
+    [SerializeField] WeaponActivation weaponActivation;
+    public static bool isDead;
 
     private void Update()
     {
@@ -15,12 +21,15 @@ public class Stats : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("YOU DIED");
-
-        // TODO - ADD WHAT HAPPENS WHEN DEAD
-        // STOP TIME
-        // GAME OVER SCREEN 
-        // SOMETHING MORE?
+        GameOverCanvas.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Camera.enabled = false;
+        Player.GetComponent<PlayerMovement>().enabled = false;
+        Player.GetComponent<Dashing>().enabled = false;
+        Player.GetComponent<Sliding>().enabled = false;
+        weaponActivation.enabled = false;
+        isDead = true;        
     }
 
     public void DealDamage(float damage)

@@ -6,6 +6,8 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
 {
     private Rigidbody[] rigidbodyAreas;
     public static bool shatteredTheDiamondCase;
+    [SerializeField] ScreenShake screenShake;
+    bool hasShaked;
 
     void Start()
     {
@@ -19,10 +21,11 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
 
         HP -= damage;
 
-        if (HP <= 0)
+        if (HP <= 0 && !hasShaked)
         {
             for (int i = 0; i < rigidbodyAreas.Length; i++)
-            {                
+            {
+                Debug.Log(rigidbodyAreas[i].name);
                 rigidbodyAreas[i].GetComponent<Rigidbody>().AddExplosionForce(Random.Range(40f, 60f), 
                     -transform.forward, Random.Range(20f, 40f), Random.Range(2f, 3f), ForceMode.Impulse);
 
@@ -31,8 +34,9 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
                 rigidbodyAreas[i].GetComponent<BoxCollider>().enabled = true;
             }
             shatteredTheDiamondCase = true;
+            screenShake.duration = 0.5f;
+            screenShake.StartCoroutine("Shake");
+            hasShaked = true;
         }
     }
-
-
 }

@@ -37,6 +37,7 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator CoolDown()
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Reload", gameObject);
         weaponData.reloading = true;
 
         WeaponProp.SetActive(false);
@@ -50,7 +51,7 @@ public class Weapon : MonoBehaviour
         weaponData.reloading = false;
     }
 
-    private bool CanActivate() => !weaponData.reloading && timeSinceLastActivation > 1f/(weaponData.fireRatePerMinute / 60f);
+    private bool CanActivate() => !weaponData.reloading && timeSinceLastActivation > 1f / (weaponData.fireRatePerMinute / 60f);
 
     public void ActivateWeapon()
     {
@@ -58,6 +59,8 @@ public class Weapon : MonoBehaviour
         {
             if (CanActivate())
             {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Shot", gameObject);
+
                 if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitInfo, weaponData.maxDistance))
                 {
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
@@ -65,12 +68,20 @@ public class Weapon : MonoBehaviour
 
                     GameObject obj = Instantiate(BulletHole, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                     obj.transform.position += obj.transform.position / -1000;
-                    Destroy(obj, 3f);
+                    Destroy(obj, 1f);
                 }
 
                 weaponData.currentAmmo--;
                 timeSinceLastActivation = 0;
                 OnWeaponActivation();
+            }
+        }
+        else
+        {
+            if (CanActivate())
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Empty", gameObject);
+                timeSinceLastActivation = 0;
             }
         }
     }
@@ -79,7 +90,7 @@ public class Weapon : MonoBehaviour
     {
         timeSinceLastActivation += Time.deltaTime;
 
-        WeaponSway();
+        //WeaponSway();
     }
 
     private void OnWeaponActivation()
@@ -92,14 +103,20 @@ public class Weapon : MonoBehaviour
 
     void WeaponSway()
     {
-        float mouseX = Input.GetAxis("Mouse X") * weaponData.swayMultiplier;
-        float mouseY = Input.GetAxis("Mouse Y") * weaponData.swayMultiplier;
+        float mouseX = Input.GetAxisRaw("Mouse X") * weaponData.swayMultiplier;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * weaponData.swayMultiplier;
 
-        Quaternion rotationX = Quaternion.AngleAxis(mouseX, Vector3.right);
-        Quaternion rotationY = Quaternion.AngleAxis(mouseY, Vector3.up);
+        Quaternion rotationX = Quaternion.AngleAxis(-mouseY, Vector3.right);
+        Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
 
         Quaternion targetRotation = rotationX * rotationY;
 
         transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, weaponData.swaySmoothing * Time.deltaTime);
+    }
+
+    private void OnDestroy()
+    {
+        WeaponActivation.weaponInput -= ActivateWeapon;
+        WeaponActivation.cooldownInput -= StartCooldown;
     }
 }

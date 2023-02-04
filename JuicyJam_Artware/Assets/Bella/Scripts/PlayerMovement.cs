@@ -107,9 +107,7 @@ public class PlayerMovement : MonoBehaviour
         if (state == MovementState.walking || state == MovementState.sprinting || state == MovementState.crouching || state == MovementState.sliding || state == MovementState.wallRunning)
             rb.drag = groundDrag;
         else
-            rb.drag = 0;
-
-        Debug.Log(state);
+            rb.drag = 0;        
     }
 
     private void FixedUpdate()
@@ -255,13 +253,11 @@ public class PlayerMovement : MonoBehaviour
                 time += Time.deltaTime * speedIncreaseMultiplier * slopeIncreaseMultiplier * slopeAngleIncrease;
             }
             else if (state == MovementState.dashing)
-            {
-                Debug.Log("LERP DASH");
+            {                
                 time += Time.deltaTime * dashSpeedChangeFactor;
             }
             else
-            {
-                Debug.Log("ELSE LERP");
+            {               
                 time += Time.deltaTime * speedIncreaseMultiplier;
             }
 

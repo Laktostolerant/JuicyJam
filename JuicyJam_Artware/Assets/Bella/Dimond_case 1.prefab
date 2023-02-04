@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a5ece75e18f184cab44ccbfbb44857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenShake: {fileID: 0}
   HP: 100
 --- !u!65 &1016818018226812842
 BoxCollider:

@@ -6,10 +6,35 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+    [SerializeField] CameraController Camera;
     public void ChangeScene(int sceneNumber)
     {
-        SceneManager.LoadScene(sceneNumber);
 
+        Time.timeScale = 1;
+        if (Camera != null)
+        {
+            Camera.enabled = true;
+        }
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        if (sceneNumber == 1)
+        {
+            AudioManager.Instance.Stop(AudioManager.Instance.MainTheme);
+            AudioManager.Instance.Stop(AudioManager.Instance.PianoTheme);
+            AudioManager.Instance.Stop(AudioManager.Instance.ChaosTheme);
+            AudioManager.Instance.Play(AudioManager.Instance.PianoTheme);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Death_Restart");
+        }
+        else
+        {
+            AudioManager.Instance.Stop(AudioManager.Instance.MainTheme);
+            AudioManager.Instance.Stop(AudioManager.Instance.PianoTheme);
+            AudioManager.Instance.Stop(AudioManager.Instance.ChaosTheme);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Click");
+        }
+
+        SceneManager.LoadScene(sceneNumber);
     }
     public void ExitFromGame()
     {

@@ -21,8 +21,8 @@ MonoBehaviour:
   recoilZ: 0.3
   snapback: 20
   returnSpeed: 10
-  swaySmoothing: 20
-  swayMultiplier: 4
+  swaySmoothing: 30
+  swayMultiplier: 20
   currentAmmo: 15
   magSize: 15
   fireRatePerMinute: 600

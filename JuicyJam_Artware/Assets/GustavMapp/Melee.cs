@@ -6,13 +6,16 @@ public class Melee : MonoBehaviour
 {
     [SerializeField] WeaponData melee;
     [SerializeField] WeaponRecoil Recoil;
-    Camera cam;
+    [SerializeField] Camera cam;
+    [SerializeField] GameObject Baton;
+    [SerializeField] Animator SwingAnimation;
     float timeSinceLastActivation;
 
     void Start()
     {
         WeaponActivation.meleeInput += ActivateMelee;
-        cam = GetComponent<Camera>();
+        cam = Camera.main;
+        Baton.SetActive(false);
     }
 
     private bool CanMelee() => timeSinceLastActivation > 1f / (melee.fireRatePerMinute / 60f);
@@ -26,13 +29,29 @@ public class Melee : MonoBehaviour
     {
         if (CanMelee())
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Bat_Hit", gameObject);
+
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitInfo, melee.maxDistance))
             {
                 IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                 damageable?.Damage(melee.damage);
-                timeSinceLastActivation = 0;
                 Recoil.RecoilMelee();
             }
+            timeSinceLastActivation = 0;
+            StartCoroutine(Swing());
         }
+    }
+
+    private void OnDestroy()
+    {
+        WeaponActivation.meleeInput -= ActivateMelee;
+    }
+
+    IEnumerator Swing()
+    {
+        Baton.SetActive(true);
+        SwingAnimation.Play("Swing");
+        yield return new WaitForSeconds(1f);
+        Baton.SetActive(false);
     }
 }
