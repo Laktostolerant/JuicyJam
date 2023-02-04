@@ -22,7 +22,7 @@ public class JohnsTestScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-            manager.Stop();
+            manager.Stop(mainTheme);
         }
 
     }
