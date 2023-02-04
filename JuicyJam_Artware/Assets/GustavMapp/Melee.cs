@@ -7,12 +7,15 @@ public class Melee : MonoBehaviour
     [SerializeField] WeaponData melee;
     [SerializeField] WeaponRecoil Recoil;
     [SerializeField] Camera cam;
+    [SerializeField] GameObject Baton;
+    [SerializeField] Animator SwingAnimation;
     float timeSinceLastActivation;
 
     void Start()
     {
         WeaponActivation.meleeInput += ActivateMelee;
         cam = Camera.main;
+        Baton.SetActive(false);
     }
 
     private bool CanMelee() => timeSinceLastActivation > 1f / (melee.fireRatePerMinute / 60f);
@@ -35,11 +38,20 @@ public class Melee : MonoBehaviour
                 Recoil.RecoilMelee();
             }
             timeSinceLastActivation = 0;
+            StartCoroutine(Swing());
         }
     }
 
     private void OnDestroy()
     {
         WeaponActivation.meleeInput -= ActivateMelee;
+    }
+
+    IEnumerator Swing()
+    {
+        Baton.SetActive(true);
+        SwingAnimation.Play("Swing");
+        yield return new WaitForSeconds(1f);
+        Baton.SetActive(false);
     }
 }
