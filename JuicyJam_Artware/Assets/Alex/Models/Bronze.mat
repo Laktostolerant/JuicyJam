@@ -152,7 +152,7 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RimEnabled: 1
-    - _SelfShadingSize: 0.422
+    - _SelfShadingSize: 0.378
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 1
@@ -171,7 +171,7 @@ Material:
     - _ColorGradient: {r: 0.85023, g: 0.85034, b: 0.8504499, a: 0.85056}
     - _DetailMapColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FlatRimColor: {r: 0.3584906, g: 0.3185383, b: 0.17417233, a: 0.85056}
+    - _FlatRimColor: {r: 0.21586053, g: 0.088655606, b: 0.0033465356, a: 1}
     - _FlatSpecularColor: {r: 0.31132078, g: 0.12446111, b: 0.06901923, a: 0.43137255}
     - _LightAttenuation: {r: 0, g: 1, b: 0, a: 0}
     - _LightmapDirection: {r: 0, g: 1, b: 0, a: 0}
