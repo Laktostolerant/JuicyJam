@@ -53,6 +53,8 @@ public class SniperMovement : MonoBehaviour
         }
     }
 
+    //If close enough to the player, go grapple. 
+    //Otherwise, chase the player wherever they are on the map.
     void Chase()
     {
         float distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -70,17 +72,21 @@ public class SniperMovement : MonoBehaviour
         }
     }
 
+
+    //Moves toward grapple point if there is any.
     void Grapple()
     {
         float distFromGrapplePoint = Vector3.Distance(transform.position, grapplePoint);
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
+        //Move toward grapple point if not there yet.
         if (distFromGrapplePoint > 0.75f)
         {
             var step = 9f * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, grapplePoint, step);
         }
 
+        //If player exists range, starts an aggro cooldown where it eventually chases after.
         if (distFromPlayer > aggroRange && distFromGrapplePoint <= 0.75f)
         {
             aggroCoroutine = StartCoroutine(AggroCooldown());
@@ -90,10 +96,12 @@ public class SniperMovement : MonoBehaviour
         if (!canGrapple || currentState != EnemyState.GRAPPLING)
             return;
 
+        //Find new grapple point if it can grapple again.
         if (distFromGrapplePoint <= 1)
             grapplePoint = NewGrapplePoint();
     }
 
+    //Stops the aggro cooldown if player returns.
     void IsPlayerReturn()
     {
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -105,6 +113,7 @@ public class SniperMovement : MonoBehaviour
         }
     }
 
+    //Finds a new point to grapple onto.
     Vector3 NewGrapplePoint()
     {
         Vector3 newPos = transform.position;
@@ -135,6 +144,7 @@ public class SniperMovement : MonoBehaviour
         return newPos;
     }
 
+    //Cooldown between grapples.
     IEnumerator GrappleCooldown()
     {
         canGrapple = false;
@@ -142,9 +152,9 @@ public class SniperMovement : MonoBehaviour
         canGrapple = true;
     }
 
+    //Drops enemy onto ground while not aggro & too far, then chases player.
     IEnumerator AggroCooldown()
     {
-        Debug.Log("player go too far >:(");
         currentState = EnemyState.NOAGGRO;
         yield return new WaitForSeconds(2);
         falling = true;
@@ -152,6 +162,9 @@ public class SniperMovement : MonoBehaviour
         currentState = EnemyState.CHASING;
     }
 
+    //Raycasts and sends to ground slowly...
+    //Didnt want to add a rigidbody lol.
+    //Works well enough.
     void Gravity()
     {
         RaycastHit groundPos;
