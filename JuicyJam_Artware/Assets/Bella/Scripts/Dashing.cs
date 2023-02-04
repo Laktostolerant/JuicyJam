@@ -51,7 +51,7 @@ public class Dashing : MonoBehaviour
     private void Dash()
     {
         
-        if (dashCooldownTimer > 0) return;
+        if (dashCooldownTimer > 0 || pm.state == PlayerMovement.MovementState.crouching) return;
         else dashCooldownTimer = dashCooldown;
         FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Dash", gameObject);
 
