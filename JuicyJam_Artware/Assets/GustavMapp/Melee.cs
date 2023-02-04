@@ -26,6 +26,8 @@ public class Melee : MonoBehaviour
     {
         if (CanMelee())
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Bat_Hit", gameObject);
+
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitInfo, melee.maxDistance))
             {
                 IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
