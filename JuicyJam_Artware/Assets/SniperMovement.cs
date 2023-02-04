@@ -36,7 +36,11 @@ public class SniperMovement : MonoBehaviour
             Debug.Log("FEET");
             navAgent.Warp(hit.point);
             Debug.DrawLine(transform.position, new Vector3(hit.point.x, hit.point.y - 100, hit.point.z), Color.red, 10);
+            //navAgent.enabled = false;
+            //navAgent.enabled = true;
         }
+
+        grapplePoint = transform.position;
     }
 
     private void Update()
@@ -55,9 +59,7 @@ public class SniperMovement : MonoBehaviour
         }
 
         if (falling)
-        {
             Gravity();
-        }
     }
 
     //If close enough to the player, go grapple. 
@@ -70,6 +72,7 @@ public class SniperMovement : MonoBehaviour
         {
             navAgent.ResetPath();
             navAgent.enabled = false;
+            grapplePoint = transform.position;
             currentState = EnemyState.GRAPPLING;
         }
         else
@@ -79,7 +82,6 @@ public class SniperMovement : MonoBehaviour
         }
     }
 
-
     //Moves toward grapple point if there is any.
     void Grapple()
     {
@@ -87,7 +89,7 @@ public class SniperMovement : MonoBehaviour
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
         //Move toward grapple point if not there yet.
-        if (distFromGrapplePoint > 0.75f)
+        if (distFromGrapplePoint > 1f)
         {
             var step = 9f * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, grapplePoint, step);
@@ -187,7 +189,7 @@ public class SniperMovement : MonoBehaviour
 
         if (distFromGround > 1f)
         {
-            var step = 3f * Time.fixedDeltaTime;
+            var step = 5f * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, groundPos.point, step);
         }
         else
