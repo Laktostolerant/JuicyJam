@@ -78,7 +78,11 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Empty", gameObject);
+            if (CanActivate())
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Empty", gameObject);
+                timeSinceLastActivation = 0;
+            }
         }
     }
 
