@@ -5,6 +5,9 @@ using UnityEngine;
 public class JohnsTestScript : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    [SerializeField] AudioManager manager;
+    [SerializeField] GameObject mainTheme;
     void Start()
     {
         
@@ -15,7 +18,12 @@ public class JohnsTestScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Effect_Glass_Shatter");
+            manager.Play(mainTheme);
         }
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            manager.Stop();
+        }
+
     }
 }

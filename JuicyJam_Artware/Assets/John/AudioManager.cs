@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject currentSound;
+
+    public void Play(GameObject musicToActivate)
     {
-        //FMODUnity.RuntimeManager.pl
+        currentSound.SetActive(false);
+        currentSound = musicToActivate;
+        currentSound.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Stop()
     {
-        
+        currentSound.SetActive(false);
     }
 }
