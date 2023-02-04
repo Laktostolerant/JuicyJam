@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static AudioManager Instance;
+
+    [SerializeField] public GameObject MainTheme;
+    [SerializeField] public GameObject PianoTheme;
+    [SerializeField] public GameObject ChaosTheme;
+    [SerializeField] public GameObject EQSnapShot;
+
+    private void Start()
     {
-        //FMODUnity.RuntimeManager.pl
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    public void Play(GameObject musicToActivate)
+    {
+        musicToActivate.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Stop(GameObject musicToDeactivate)
     {
-        
+        musicToDeactivate.SetActive(false);
     }
 }

@@ -356,7 +356,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111159934173231
+  lastModified: 638111189201803158
   FileSizes: []
   Exists: 1
 --- !u!114 &-7454431863779596402
@@ -699,10 +699,10 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111159934248057
+  lastModified: 638111189201883170
   FileSizes:
   - Name: 
-    Value: 2636
+    Value: 2756
   Exists: 1
 --- !u!114 &-4099603698100312448
 MonoBehaviour:
@@ -1191,12 +1191,13 @@ MonoBehaviour:
   - {fileID: -1674762682406605775}
   - {fileID: 8288258338373756664}
   - {fileID: 3655925782551317697}
+  - {fileID: 1123850547609456805}
   EditorParameters: []
   MasterBanks:
   - {fileID: -7589652175711926099}
   StringsBanks:
   - {fileID: -4444980115835805997}
-  cacheTime: 638111159934248057
+  cacheTime: 638111189201883170
   cacheVersion: 131601
 --- !u!114 &115440389291865794
 MonoBehaviour:
@@ -1357,6 +1358,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1366
+--- !u!114 &1123850547609456805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Music EQ
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Music EQ
+  Guid:
+    Data1: -617409771
+    Data2: 1294055271
+    Data3: -907503206
+    Data4: 671853699
+  Banks:
+  - {fileID: -7589652175711926099}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &1507177996774351899
 MonoBehaviour:
   m_ObjectHideFlags: 0
