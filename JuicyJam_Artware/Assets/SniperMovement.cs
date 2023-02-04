@@ -30,6 +30,13 @@ public class SniperMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
             Destroy(gameObject);
+
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, 10, 1 << 8))
+        {
+            Debug.Log("FEET");
+            navAgent.Warp(hit.point);
+            Debug.DrawLine(transform.position, new Vector3(hit.point.x, hit.point.y - 100, hit.point.z), Color.red, 10);
+        }
     }
 
     private void Update()
@@ -109,6 +116,7 @@ public class SniperMovement : MonoBehaviour
         {
             Debug.Log("player came back before i could go wacko mode :)");
             StopCoroutine(aggroCoroutine);
+            falling = false;
             currentState = EnemyState.GRAPPLING;
         }
     }

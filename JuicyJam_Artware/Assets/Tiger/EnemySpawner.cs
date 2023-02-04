@@ -5,14 +5,18 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     EnemySpawnManager enemySpawnManager;
-    void Start()
-    {
-    }
+
+    [SerializeField] Vector3 spawnPosition;
+    LayerMask rayMask = 1 << 8;
+    RaycastHit hit;
 
     private void OnEnable()
     {
-        Invoke("SpawnEnemies", Random.Range(1, 5));
+        Invoke("SpawnEnemies", Random.Range(3, 6));
         enemySpawnManager = GameObject.FindWithTag("GameManager").GetComponent<EnemySpawnManager>();
+
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, 20, rayMask))
+            spawnPosition = new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z);
     }
 
     //Spawns a random number of enemies, and a random type.
@@ -24,18 +28,10 @@ public class EnemySpawner : MonoBehaviour
 
         for(int index = 0; index < numberOfEnemies; index++)
         {
-            int randomChance = Random.Range(0, 10);
-
-            if (randomChance < 7)
-            {
-                Instantiate(enemySpawnManager.enemyTypes[0], gameObject.transform);
-            }
-            else
-            {
-                Instantiate(enemySpawnManager.enemyTypes[1], gameObject.transform);
-            }
+            Vector3 spawnOffset = new Vector3(spawnPosition.x + Random.Range(-7, 7), spawnPosition.y, spawnPosition.z + Random.Range(-7, 7));
+            Instantiate(enemySpawnManager.sniperPrefab, spawnOffset, new Quaternion(0,0,0,0));
         }
 
-        Invoke("SpawnEnemies", Random.Range(1, 5));
+        Invoke("SpawnEnemies", Random.Range(3, 6));
     }
 }
