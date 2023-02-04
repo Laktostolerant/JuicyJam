@@ -697,7 +697,7 @@ MonoBehaviour:
   ammoCounter: {fileID: 2137171415}
   ammoSlider: {fileID: 1704744447}
   AmmoGameObject: {fileID: 1556424998}
-  weaponData: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55, type: 2}
+  weaponData: {fileID: 11400000, guid: 63ee49608153e524593a9eed81d3eb97, type: 2}
 --- !u!114 &136627292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bar: {fileID: 1580823940}
   ProgressBar: {fileID: 155138214}
-  weaponData: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55, type: 2}
+  weaponData: {fileID: 11400000, guid: 63ee49608153e524593a9eed81d3eb97, type: 2}
 --- !u!1 &155138213
 GameObject:
   m_ObjectHideFlags: 0
@@ -6412,7 +6412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b382c80be95ec4f807ce0d55e044f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55, type: 2}
+  weaponData: {fileID: 11400000, guid: 63ee49608153e524593a9eed81d3eb97, type: 2}
   reloadKey: 114
   meleeKey: 118
 --- !u!1 &2099088571
@@ -6933,6 +6933,11 @@ PrefabInstance:
       objectReference: {fileID: 130787643051370559}
     - target: {fileID: 3716713660775099382, guid: a478859e02f4d0b4485249af07dc0d2a,
         type: 3}
+      propertyPath: dashFOV
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3716713660775099382, guid: a478859e02f4d0b4485249af07dc0d2a,
+        type: 3}
       propertyPath: camController
       value: 
       objectReference: {fileID: 130787643051370690}
@@ -7216,19 +7221,24 @@ PrefabInstance:
         type: 3}
       propertyPath: weaponData
       value: 
-      objectReference: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55,
+      objectReference: {fileID: 11400000, guid: 63ee49608153e524593a9eed81d3eb97,
         type: 2}
     - target: {fileID: 4431591770055114740, guid: e4df4fed38c674944b65200cbd996671,
         type: 3}
       propertyPath: weaponData
       value: 
-      objectReference: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55,
+      objectReference: {fileID: 11400000, guid: 63ee49608153e524593a9eed81d3eb97,
         type: 2}
+    - target: {fileID: 4431591770055114742, guid: e4df4fed38c674944b65200cbd996671,
+        type: 3}
+      propertyPath: m_Name
+      value: Rifle
+      objectReference: {fileID: 0}
     - target: {fileID: 4431591770261765209, guid: e4df4fed38c674944b65200cbd996671,
         type: 3}
       propertyPath: weaponData
       value: 
-      objectReference: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55,
+      objectReference: {fileID: 11400000, guid: 63ee49608153e524593a9eed81d3eb97,
         type: 2}
     - target: {fileID: 8111829261247987620, guid: e4df4fed38c674944b65200cbd996671,
         type: 3}
