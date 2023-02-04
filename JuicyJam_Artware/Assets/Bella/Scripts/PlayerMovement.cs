@@ -255,13 +255,11 @@ public class PlayerMovement : MonoBehaviour
                 time += Time.deltaTime * speedIncreaseMultiplier * slopeIncreaseMultiplier * slopeAngleIncrease;
             }
             else if (state == MovementState.dashing)
-            {
-                Debug.Log("LERP DASH");
+            {                
                 time += Time.deltaTime * dashSpeedChangeFactor;
             }
             else
-            {
-                Debug.Log("ELSE LERP");
+            {               
                 time += Time.deltaTime * speedIncreaseMultiplier;
             }
 

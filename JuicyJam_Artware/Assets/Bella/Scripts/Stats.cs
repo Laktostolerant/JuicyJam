@@ -21,10 +21,6 @@ public class Stats : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("YOU DIED");
-
-        // TODO - ADD WHAT HAPPENS WHEN DEAD
-        // STOP TIME
         GameOverCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -33,8 +29,7 @@ public class Stats : MonoBehaviour
         Player.GetComponent<Dashing>().enabled = false;
         Player.GetComponent<Sliding>().enabled = false;
         weaponActivation.enabled = false;
-        isDead = true;
-        // SOMETHING MORE?
+        isDead = true;        
     }
 
     public void DealDamage(float damage)
