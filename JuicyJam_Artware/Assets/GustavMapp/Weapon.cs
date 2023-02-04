@@ -37,6 +37,7 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator CoolDown()
     {
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Reload", gameObject);
         weaponData.reloading = true;
 
         WeaponProp.SetActive(false);
@@ -50,7 +51,7 @@ public class Weapon : MonoBehaviour
         weaponData.reloading = false;
     }
 
-    private bool CanActivate() => !weaponData.reloading && timeSinceLastActivation > 1f/(weaponData.fireRatePerMinute / 60f);
+    private bool CanActivate() => !weaponData.reloading && timeSinceLastActivation > 1f / (weaponData.fireRatePerMinute / 60f);
 
     public void ActivateWeapon()
     {
@@ -58,6 +59,8 @@ public class Weapon : MonoBehaviour
         {
             if (CanActivate())
             {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Shot", gameObject);
+
                 if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitInfo, weaponData.maxDistance))
                 {
                     IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
@@ -72,6 +75,10 @@ public class Weapon : MonoBehaviour
                 timeSinceLastActivation = 0;
                 OnWeaponActivation();
             }
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Empty", gameObject);
         }
     }
 
