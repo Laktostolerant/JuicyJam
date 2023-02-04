@@ -6,13 +6,13 @@ public class Melee : MonoBehaviour
 {
     [SerializeField] WeaponData melee;
     [SerializeField] WeaponRecoil Recoil;
-    Camera cam;
+    [SerializeField] Camera cam;
     float timeSinceLastActivation;
 
     void Start()
     {
         WeaponActivation.meleeInput += ActivateMelee;
-        cam = GetComponent<Camera>();
+        cam = Camera.main;
     }
 
     private bool CanMelee() => timeSinceLastActivation > 1f / (melee.fireRatePerMinute / 60f);
@@ -34,5 +34,10 @@ public class Melee : MonoBehaviour
                 Recoil.RecoilMelee();
             }
         }
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
     }
 }

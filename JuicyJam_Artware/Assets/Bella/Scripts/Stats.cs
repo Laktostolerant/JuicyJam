@@ -6,6 +6,9 @@ public class Stats : MonoBehaviour
 {
     [Header("Stats")]
     public float health;
+    public GameObject GameOverCanvas;
+
+    [SerializeField] CameraController Camera;
 
     private void Update()
     {
@@ -19,7 +22,11 @@ public class Stats : MonoBehaviour
 
         // TODO - ADD WHAT HAPPENS WHEN DEAD
         // STOP TIME
-        // GAME OVER SCREEN 
+        GameOverCanvas.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        Camera.enabled = false;
         // SOMETHING MORE?
     }
 

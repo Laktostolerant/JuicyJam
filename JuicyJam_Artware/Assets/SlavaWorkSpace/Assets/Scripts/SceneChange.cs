@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+    [SerializeField] CameraController Camera;
     public void ChangeScene(int sceneNumber)
     {
-        SceneManager.LoadScene(sceneNumber);
-
+        SceneManager.LoadSceneAsync(sceneNumber);
+        Time.timeScale = 1;
+        Camera.enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public void ExitFromGame()
     {
