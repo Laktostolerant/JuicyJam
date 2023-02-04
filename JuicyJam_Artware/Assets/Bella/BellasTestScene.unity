@@ -697,7 +697,7 @@ MonoBehaviour:
   ammoCounter: {fileID: 2137171415}
   ammoSlider: {fileID: 1704744447}
   AmmoGameObject: {fileID: 1556424998}
-  weaponData: {fileID: 11400000, guid: cc728a15b15b1b748b5c2fffb8c06ae6, type: 2}
+  weaponData: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55, type: 2}
 --- !u!114 &136627292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bar: {fileID: 1580823940}
   ProgressBar: {fileID: 155138214}
-  weaponData: {fileID: 11400000, guid: cc728a15b15b1b748b5c2fffb8c06ae6, type: 2}
+  weaponData: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55, type: 2}
 --- !u!1 &155138213
 GameObject:
   m_ObjectHideFlags: 0
