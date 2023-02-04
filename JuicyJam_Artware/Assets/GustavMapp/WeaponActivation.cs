@@ -10,6 +10,8 @@ public class WeaponActivation : MonoBehaviour
     public static Action meleeInput;
 
     [SerializeField] WeaponData weaponData;
+    [SerializeField] KeyCode reloadKey = KeyCode.R;
+    [SerializeField] KeyCode meleeKey = KeyCode.V;
 
     void Update()
     {
@@ -29,12 +31,12 @@ public class WeaponActivation : MonoBehaviour
             }            
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetKeyDown(reloadKey))
         {
             cooldownInput?.Invoke();
         }
 
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetKeyDown(meleeKey))
         {
             meleeInput?.Invoke();
         }

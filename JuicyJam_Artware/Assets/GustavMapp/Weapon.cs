@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour
 
                     GameObject obj = Instantiate(BulletHole, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
                     obj.transform.position += obj.transform.position / -1000;
-                    Destroy(obj, 3f);
+                    Destroy(obj, 1f);
                 }
 
                 weaponData.currentAmmo--;
@@ -79,7 +79,7 @@ public class Weapon : MonoBehaviour
     {
         timeSinceLastActivation += Time.deltaTime;
 
-        WeaponSway();
+        //WeaponSway();
     }
 
     private void OnWeaponActivation()
@@ -92,11 +92,11 @@ public class Weapon : MonoBehaviour
 
     void WeaponSway()
     {
-        float mouseX = Input.GetAxis("Mouse X") * weaponData.swayMultiplier;
-        float mouseY = Input.GetAxis("Mouse Y") * weaponData.swayMultiplier;
+        float mouseX = Input.GetAxisRaw("Mouse X") * weaponData.swayMultiplier;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * weaponData.swayMultiplier;
 
-        Quaternion rotationX = Quaternion.AngleAxis(mouseX, Vector3.right);
-        Quaternion rotationY = Quaternion.AngleAxis(mouseY, Vector3.up);
+        Quaternion rotationX = Quaternion.AngleAxis(-mouseY, Vector3.right);
+        Quaternion rotationY = Quaternion.AngleAxis(mouseX, Vector3.up);
 
         Quaternion targetRotation = rotationX * rotationY;
 
