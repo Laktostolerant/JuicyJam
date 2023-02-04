@@ -24,7 +24,8 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
         if (HP <= 0 && !hasShaked)
         {
             for (int i = 0; i < rigidbodyAreas.Length; i++)
-            {                
+            {
+                Debug.Log(rigidbodyAreas[i].name);
                 rigidbodyAreas[i].GetComponent<Rigidbody>().AddExplosionForce(Random.Range(40f, 60f), 
                     -transform.forward, Random.Range(20f, 40f), Random.Range(2f, 3f), ForceMode.Impulse);
 
