@@ -15,16 +15,14 @@ public class Stats : MonoBehaviour
 
     private void Update()
     {
-        if (health <= 0)
+        if (health <= 0 && !isDead)
             Die();
     }
 
     private void Die()
     {
-        Debug.Log("YOU DIED");
 
-        // TODO - ADD WHAT HAPPENS WHEN DEAD
-        // STOP TIME
+        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Death", gameObject);
         GameOverCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -34,7 +32,6 @@ public class Stats : MonoBehaviour
         Player.GetComponent<Sliding>().enabled = false;
         weaponActivation.enabled = false;
         isDead = true;
-        // SOMETHING MORE?
     }
 
     public void DealDamage(float damage)

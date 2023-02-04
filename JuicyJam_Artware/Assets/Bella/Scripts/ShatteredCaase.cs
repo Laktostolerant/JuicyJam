@@ -23,6 +23,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
 
         if (HP <= 0 && !hasShaked)
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Effects/Effect_Glass_Shatter", gameObject);
             for (int i = 0; i < rigidbodyAreas.Length; i++)
             {                
                 rigidbodyAreas[i].GetComponent<Rigidbody>().AddExplosionForce(Random.Range(40f, 60f), 

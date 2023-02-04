@@ -25,6 +25,7 @@ public class GameSettings : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Click");
             AudioManager.Instance.Play(AudioManager.Instance.EQSnapShot);
             optionsPanel.SetActive(true);
             Time.timeScale = 0;
