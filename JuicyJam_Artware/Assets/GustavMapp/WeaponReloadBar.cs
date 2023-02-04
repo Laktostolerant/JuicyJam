@@ -24,7 +24,6 @@ public class WeaponReloadBar : MonoBehaviour
 
     void Update()
     {
-        ammoRemaining = weaponData.currentAmmo;
 
         //AmmoCount.text = ammoRemaining.ToString();
 

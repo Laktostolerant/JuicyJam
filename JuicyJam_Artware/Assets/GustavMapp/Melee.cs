@@ -32,9 +32,9 @@ public class Melee : MonoBehaviour
             {
                 IDamageable damageable = hitInfo.transform.GetComponent<IDamageable>();
                 damageable?.Damage(melee.damage);
-                timeSinceLastActivation = 0;
                 Recoil.RecoilMelee();
             }
+            timeSinceLastActivation = 0;
         }
     }
 

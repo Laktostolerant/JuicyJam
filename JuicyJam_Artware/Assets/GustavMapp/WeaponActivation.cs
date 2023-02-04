@@ -15,30 +15,34 @@ public class WeaponActivation : MonoBehaviour
 
     void Update()
     {
-        if (weaponData.isSemiAutomatic)
+        if (!GameSettings.isPaused)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (weaponData.isSemiAutomatic)
             {
-                weaponInput?.Invoke();
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    weaponInput?.Invoke();
+                }
+            }
+
+            if (!weaponData.isSemiAutomatic)
+            {
+                if (Input.GetButton("Fire1"))
+                {
+                    weaponInput?.Invoke();
+                }
+            }
+
+            if (Input.GetKeyDown(reloadKey))
+            {
+                cooldownInput?.Invoke();
+            }
+
+            if (Input.GetKeyDown(meleeKey))
+            {
+                meleeInput?.Invoke();
             }
         }
-
-        if (!weaponData.isSemiAutomatic)
-        {
-            if (Input.GetButton("Fire1"))
-            {
-                weaponInput?.Invoke();
-            }            
-        }
-
-        if (Input.GetKeyDown(reloadKey))
-        {
-            cooldownInput?.Invoke();
-        }
-
-        if (Input.GetKeyDown(meleeKey))
-        {
-            meleeInput?.Invoke();
-        }
+        
     }
 }
