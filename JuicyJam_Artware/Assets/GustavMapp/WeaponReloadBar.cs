@@ -4,10 +4,10 @@ using TMPro;
 
 public class WeaponReloadBar : MonoBehaviour
 {
-    GameObject Bar;
+    [SerializeField] GameObject Bar;
     GameObject AmmoCounter;
-    [SerializeField] TextMeshProUGUI AmmoCount;
-    [SerializeField] TextMeshProUGUI MaxAmmo;
+    //[SerializeField] TextMeshProUGUI AmmoCount;
+    //[SerializeField] TextMeshProUGUI MaxAmmo;
     [SerializeField] Image ProgressBar;
     [SerializeField] WeaponData weaponData;
 
@@ -18,43 +18,29 @@ public class WeaponReloadBar : MonoBehaviour
 
     void Start()
     {
-        Bar = gameObject.transform.Find("Bar").gameObject;
-        AmmoCounter = gameObject.transform.Find("AmmoCounter").gameObject;
         reloadTime = weaponData.reloadTime;
         remainingTime = reloadTime;
-        Bar.SetActive(false);
-        AmmoCounter.SetActive(false);
-        MaxAmmo.text = weaponData.magSize.ToString();
     }
 
     void Update()
     {
-        if (!ShatteredCaase.shatteredTheDiamondCase)
-        {
-            AmmoCounter.SetActive(false);
-        }
-
-        if (ShatteredCaase.shatteredTheDiamondCase)
-        {
-            AmmoCounter.SetActive(true);
-        }
-
         ammoRemaining = weaponData.currentAmmo;
 
-        AmmoCount.text = ammoRemaining.ToString();
+        //AmmoCount.text = ammoRemaining.ToString();
 
-        if (remainingTime > 0 && weaponData.reloading)
+        if (weaponData.reloading)
         {
-            AmmoCounter.SetActive(false);
+            //AmmoCounter.SetActive(false);
             Bar.SetActive(true);
             remainingTime -= Time.deltaTime;
             ProgressBar.fillAmount = remainingTime / reloadTime;            
         }
         else
         {
-            AmmoCounter.SetActive(true);
+            //AmmoCounter.SetActive(true);
             Bar.SetActive(false);
             remainingTime = reloadTime;
         }
+        
     }
 }
