@@ -36,8 +36,8 @@ public class Melee : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void OnDestroy()
     {
-        DontDestroyOnLoad(gameObject);
+        WeaponActivation.meleeInput -= ActivateMelee;
     }
 }

@@ -109,4 +109,10 @@ public class Weapon : MonoBehaviour
 
         transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, weaponData.swaySmoothing * Time.deltaTime);
     }
+
+    private void OnDestroy()
+    {
+        WeaponActivation.weaponInput -= ActivateWeapon;
+        WeaponActivation.cooldownInput -= StartCooldown;
+    }
 }
