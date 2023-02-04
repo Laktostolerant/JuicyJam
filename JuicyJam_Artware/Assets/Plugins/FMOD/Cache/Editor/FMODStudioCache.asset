@@ -356,7 +356,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111199229908925
+  lastModified: 638111217335024903
   FileSizes: []
   Exists: 1
 --- !u!114 &-7454431863779596402
@@ -699,7 +699,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111199229978960
+  lastModified: 638111217335094930
   FileSizes:
   - Name: 
     Value: 2756
@@ -931,19 +931,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Music/Ross Bugden - Welcome to Chaos
   Guid:
-    Data1: -22411080
-    Data2: 1341354760
-    Data3: -1213949531
-    Data4: 888216531
+    Data1: -184818688
+    Data2: 1193170206
+    Data3: -391565689
+    Data4: 53778153
   Banks:
   - {fileID: -7589652175711926099}
   IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
+  Is3D: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 166000
+  Length: 172564
 --- !u!114 &-1664750560638254269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ MonoBehaviour:
   - {fileID: -7589652175711926099}
   StringsBanks:
   - {fileID: -4444980115835805997}
-  cacheTime: 638111199229978960
+  cacheTime: 638111217335094930
   cacheVersion: 131601
 --- !u!114 &115440389291865794
 MonoBehaviour:
@@ -1633,15 +1633,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Music/main Theme - Ben
   Guid:
-    Data1: -1549661206
-    Data2: 1177969237
-    Data3: 78681524
-    Data4: -546837226
+    Data1: -1961744438
+    Data2: 1327889212
+    Data3: 803148979
+    Data4: 304064531
   Banks:
   - {fileID: -7589652175711926099}
   IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
+  Is3D: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
@@ -2064,19 +2064,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Music/midnight-123895
   Guid:
-    Data1: 1611189694
-    Data2: 1222885379
-    Data3: -593674057
-    Data4: -861662091
+    Data1: -1167505227
+    Data2: 1229812963
+    Data3: -1596622425
+    Data4: 469820312
   Banks:
   - {fileID: -7589652175711926099}
   IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
+  Is3D: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 200000
+  Length: 223712
 --- !u!114 &8722367735406499954
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Play(MainTheme);
     }
     public void Play(GameObject musicToActivate)
     {
