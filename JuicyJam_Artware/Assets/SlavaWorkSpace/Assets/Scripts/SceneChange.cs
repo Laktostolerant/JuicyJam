@@ -9,18 +9,21 @@ public class SceneChange : MonoBehaviour
     [SerializeField] CameraController Camera;
     public void ChangeScene(int sceneNumber)
     {
-       
+
         Time.timeScale = 1;
-        Camera.enabled = true;
+        if (Camera != null)
+        {
+            Camera.enabled = true;
+        }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if(sceneNumber == 1)
+        if (sceneNumber == 1)
         {
             AudioManager.Instance.Stop(AudioManager.Instance.MainTheme);
             AudioManager.Instance.Stop(AudioManager.Instance.PianoTheme);
             AudioManager.Instance.Stop(AudioManager.Instance.ChaosTheme);
-            AudioManager.Instance.Play(AudioManager.Instance.ChaosTheme);
+            AudioManager.Instance.Play(AudioManager.Instance.PianoTheme);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/UI_Death_Restart");
         }
         else
