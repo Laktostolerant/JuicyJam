@@ -730,7 +730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!143 &142192946
 CharacterController:
   m_ObjectHideFlags: 0
@@ -761,7 +761,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc57146b535b2f47bca1c1163e06cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionChecker: {fileID: 0}
+  fmodEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!135 &142192948
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4702,7 +4708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1741482072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4715,7 +4721,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc57146b535b2f47bca1c1163e06cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionChecker: {fileID: 0}
+  fmodEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!143 &1741482073
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5593,8 +5605,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2100705145}
   - component: {fileID: 2100705144}
-  - component: {fileID: 2100705143}
   - component: {fileID: 2100705146}
+  - component: {fileID: 2100705147}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5602,14 +5614,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2100705143
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100705142}
-  m_Enabled: 1
 --- !u!20 &2100705144
 Camera:
   m_ObjectHideFlags: 0
@@ -5701,6 +5705,19 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &2100705147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100705142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 351222665}
 --- !u!1 &2132124188
 GameObject:
   m_ObjectHideFlags: 0
@@ -7496,7 +7513,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc57146b535b2f47bca1c1163e06cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionChecker: {fileID: 0}
+  fmodEvent:
+    Guid:
+      Data1: 989248637
+      Data2: 1339567291
+      Data3: 44272051
+      Data4: 1335264967
+    Path: event:/Cyborg/Cyborg_Gun_Reeling
 --- !u!195 &6384160180112954529
 NavMeshAgent:
   m_ObjectHideFlags: 0
