@@ -67,7 +67,12 @@ public class Weapon : MonoBehaviour
         {
             if (CanActivate())
             {
-                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Shot", gameObject);
+                if (isPrimary)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Rifle Shot", gameObject);
+                }
+                else
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Shot", gameObject);
 
                 if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hitInfo, weaponData.maxDistance))
                 {
@@ -112,7 +117,7 @@ public class Weapon : MonoBehaviour
         if (isPrimary)
         {
             Recoil.RecoilRiffle();
-        }        
+        }
     }
 
     void WeaponSway()
