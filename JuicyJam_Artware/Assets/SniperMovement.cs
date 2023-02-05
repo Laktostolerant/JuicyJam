@@ -11,6 +11,7 @@ public class SniperMovement : MonoBehaviour
 
     CharacterController charCtrl;
     NavMeshAgent navAgent;
+    Animator animator;
     GameObject player;
 
     float aggroRange = 30;
@@ -24,11 +25,11 @@ public class SniperMovement : MonoBehaviour
     Coroutine grappleCooldownCoroutine;
     Coroutine aggroCoroutine;
 
-    [SerializeField] GameObject collisionChecker;
     void Start()
     {
         charCtrl = GetComponent<CharacterController>();
         navAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
             Destroy(gameObject);
@@ -39,6 +40,7 @@ public class SniperMovement : MonoBehaviour
             Debug.DrawLine(transform.position, new Vector3(hit.point.x, hit.point.y - 100, hit.point.z), Color.red, 10);
         }
 
+        animator.SetBool("running", true);
         grapplePoint = transform.position;
     }
 
@@ -65,6 +67,7 @@ public class SniperMovement : MonoBehaviour
     //Otherwise, chase the player wherever they are on the map.
     void Chase()
     {
+        animator.SetBool("running", true);
         float distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
         if (distanceFromPlayer < aggroRange && canGrapple)
@@ -84,7 +87,12 @@ public class SniperMovement : MonoBehaviour
     //Moves toward grapple point if there is any.
     void Grapple()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Attachment_Shot");
+        animator.SetBool("running", false);
+
+        if (!isGrappling)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Attachment_Shot");
+        }
         float distFromGrapplePoint = Vector3.Distance(transform.position, grapplePoint);
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
@@ -103,13 +111,13 @@ public class SniperMovement : MonoBehaviour
         }
         else
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Wall_Hook");
             reelSound.release();
         }
 
         //If player exists range, starts an aggro cooldown where it eventually chases after.
         if (distFromPlayer > aggroRange && distFromGrapplePoint <= 1f)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Wall_Hook");
             aggroCoroutine = StartCoroutine(AggroCooldown());
             return;
         }

@@ -30,7 +30,8 @@ public class Stats : MonoBehaviour
         Player.GetComponent<Dashing>().enabled = false;
         Player.GetComponent<Sliding>().enabled = false;
         weaponActivation.enabled = false;
-        isDead = true;        
+        isDead = true;
+        ShatteredCaase.shatteredTheDiamondCase = false;
     }
 
     public void DealDamage(float damage)

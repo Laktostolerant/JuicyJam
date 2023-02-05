@@ -15,6 +15,8 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
     bool textTurnOff;
     bool pickUpTextActive;
     [SerializeField] GameObject diamond;
+    [SerializeField] GameObject WinCollider;
+
 
     void Start()
     {
@@ -22,6 +24,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
         pickUpCollider.enabled = false;
         PickUpText.SetActive(false);
         GetOutText.SetActive(false);
+        WinCollider.SetActive(false);
     }
 
     public float HP;
@@ -33,6 +36,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
             PickUpText.SetActive(false);
             hasPickedUpDiamond = true;
             diamond.SetActive(false);
+            WinCollider.SetActive(true);
         }
 
         if (hasShaked)
