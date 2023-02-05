@@ -4672,6 +4672,7 @@ GameObject:
   - component: {fileID: 731159124}
   - component: {fileID: 731159123}
   - component: {fileID: 731159122}
+  - component: {fileID: 731159125}
   m_Layer: 5
   m_Name: Scrollbar
   m_TagString: Untagged
@@ -4748,19 +4749,7 @@ MonoBehaviour:
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2019678367}
-        m_TargetAssemblyTypeName: VCAController, Assembly-CSharp
-        m_MethodName: SetVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &731159123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4799,6 +4788,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731159120}
   m_CullTransparentMesh: 1
+--- !u!114 &731159125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731159120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfafb39870d8c346b9fb9c8f2eb39bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myScrollbar: {fileID: 731159122}
 --- !u!1 &739152236
 GameObject:
   m_ObjectHideFlags: 0
@@ -14889,18 +14891,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edd2032b32dc3024c8c02bbeb35f322c, type: 3}
---- !u!114 &2019678367 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 609216974, guid: edd2032b32dc3024c8c02bbeb35f322c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2019678366}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cd6ef5146be2244b8a91e02cf56e797, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2024958536
 GameObject:
   m_ObjectHideFlags: 0
