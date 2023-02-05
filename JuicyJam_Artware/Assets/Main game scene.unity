@@ -18298,6 +18298,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraHolderFinalVersion
       objectReference: {fileID: 0}
+    - target: {fileID: 5314104061089271086, guid: 4bf1ac096ce1ef447b06ef988f550b14,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.009
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bf1ac096ce1ef447b06ef988f550b14, type: 3}
 --- !u!1 &2012631976
