@@ -752,11 +752,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5237953988349540635, guid: cd6473fb44a26f04e882f4ae2f50b939,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 960024218}
     - target: {fileID: 5237953988349540636, guid: cd6473fb44a26f04e882f4ae2f50b939,
         type: 3}
       propertyPath: m_Name
       value: PlayerFinal
       objectReference: {fileID: 0}
+    - target: {fileID: 5237953988349540838, guid: cd6473fb44a26f04e882f4ae2f50b939,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 960024219}
+    - target: {fileID: 5237953988349540838, guid: cd6473fb44a26f04e882f4ae2f50b939,
+        type: 3}
+      propertyPath: camController
+      value: 
+      objectReference: {fileID: 960024218}
     - target: {fileID: 5237953988349540839, guid: cd6473fb44a26f04e882f4ae2f50b939,
         type: 3}
       propertyPath: m_RootOrder
@@ -857,6 +872,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ccdc090226688d41bf0fbb1b30b6bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &960024219 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 718895479038203278, guid: 65178e719edecb04388cd4f860f56d68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1853564410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &980957032
 GameObject:
   m_ObjectHideFlags: 0
