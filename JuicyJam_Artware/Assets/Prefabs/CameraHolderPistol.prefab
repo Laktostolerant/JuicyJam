@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 5349549876390037283}
   - component: {fileID: 5349549876390037282}
   - component: {fileID: 3179916490657230213}
+  - component: {fileID: 1912235100}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -301,6 +302,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64913ee6f0850a241ba1218efb777fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1912235100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504088079025467219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1581511518
+      Data2: 1200139903
+      Data3: -1263534188
+      Data4: 567648603
+    Path: event:/Ambience/Ambience_Room
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &517429917131441373
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e558792c4bd6c7409cfc64bfcdd1799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55, type: 2}
+  weaponDataPistol: {fileID: 0}
+  weaponDataRifle: {fileID: 0}
   meleeData: {fileID: 11400000, guid: 07c3c8dad916dac498a2a93f49acdabc, type: 2}
 --- !u!1 &517429917463357430
 GameObject:
@@ -467,6 +499,7 @@ MonoBehaviour:
   BulletHole: {fileID: 1949756999674365545, guid: b1f436bf69b47f141b265177465590db,
     type: 3}
   Recoil: {fileID: 517429917131441375}
+  isPrimary: 0
 --- !u!114 &517429918000564085
 MonoBehaviour:
   m_ObjectHideFlags: 0
