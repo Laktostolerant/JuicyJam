@@ -900,6 +900,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2285
+--- !u!114 &-5326727164160722566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Player_Gun_Rifle Shot
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Player_Gun_Rifle Shot
+  Guid:
+    Data1: 1049560236
+    Data2: 1171028935
+    Data3: -1275546487
+    Data4: -191737187
+  Banks:
+  - {fileID: -2302047876498529055}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2350
 --- !u!114 &-5231434675686162609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,10 +1364,10 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111912498546813
+  lastModified: 638112000863817771
   FileSizes:
   - Name: 
-    Value: 2798
+    Value: 2850
   Exists: 1
 --- !u!114 &-2520900216431466476
 MonoBehaviour:
@@ -1411,7 +1438,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111912498476801
+  lastModified: 638112000863737751
   FileSizes: []
   Exists: 1
 --- !u!114 &-1712471831018387203
@@ -1880,12 +1907,13 @@ MonoBehaviour:
   - {fileID: -7855742243603274727}
   - {fileID: -7777817881202235496}
   - {fileID: 3546797776322530399}
+  - {fileID: -5326727164160722566}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2302047876498529055}
   StringsBanks:
   - {fileID: -2627777615253949710}
-  cacheTime: 638111912498546813
+  cacheTime: 638112000863817771
   cacheVersion: 131601
 --- !u!114 &115440389291865794
 MonoBehaviour:

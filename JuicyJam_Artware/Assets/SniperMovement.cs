@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class SniperMovement : MonoBehaviour
 {
     private FMOD.Studio.EventInstance reelSound;
+    [SerializeField] FMODUnity.EventReference fmodEvent;
     enum EnemyState { CHASING, GRAPPLING, NOAGGRO }
     EnemyState currentState = EnemyState.CHASING;
 
@@ -89,10 +90,6 @@ public class SniperMovement : MonoBehaviour
     {
         animator.SetBool("running", false);
 
-        if (!isGrappling)
-        {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Attachment_Shot");
-        }
         float distFromGrapplePoint = Vector3.Distance(transform.position, grapplePoint);
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
@@ -101,23 +98,29 @@ public class SniperMovement : MonoBehaviour
         {
             if (!isGrappling)
             {
-                reelSound = FMODUnity.RuntimeManager.CreateInstance("event:/Cyborg/Cyborg_Gun_Reeling");
+                reelSound = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+                Debug.Log("YEYEYEY");
                 reelSound.start();
                 isGrappling = true;
             }
+            reelSound.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 
             var step = 9f * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, grapplePoint, step);
         }
         else
         {
-            reelSound.release();
+            if(isGrappling == true)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Wall_Hit");
+            }
+            isGrappling = false;
+            reelSound.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
         //If player exists range, starts an aggro cooldown where it eventually chases after.
         if (distFromPlayer > aggroRange && distFromGrapplePoint <= 1f)
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Wall_Hook");
             aggroCoroutine = StartCoroutine(AggroCooldown());
             return;
         }
@@ -146,6 +149,7 @@ public class SniperMovement : MonoBehaviour
     //Finds a new point to grapple onto.
     Vector3 NewGrapplePoint()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Wall_Hook", transform.position);
         Vector3 newPos = transform.position;
         float distanceFromOrigin = 0;
         LayerMask grappleMask = 1 << 7 | 1 << 8 | 1 << 9;
@@ -170,6 +174,7 @@ public class SniperMovement : MonoBehaviour
             distanceFromOrigin = Vector3.Distance(newPos, transform.position);
         }
         Debug.DrawLine(transform.position, hit.point, Color.blue, 20);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Attachment_Shot", transform.position);
         grappleCooldownCoroutine = StartCoroutine(GrappleCooldown());
         return newPos;
     }
