@@ -18,6 +18,9 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] WeaponRecoil Recoil;
 
+    [SerializeField] bool isPrimary;
+    public static bool isReloading;
+
     private void Start()
     {
         WeaponActivation.weaponInput += ActivateWeapon;
@@ -25,6 +28,7 @@ public class Weapon : MonoBehaviour
         weaponData.currentAmmo = weaponData.magSize;
         WeaponProp = gameObject.transform.Find(weaponModelName).gameObject;
         weaponData.reloading = false;
+        isReloading = false;
     }
 
     public void StartCooldown()
@@ -42,6 +46,8 @@ public class Weapon : MonoBehaviour
 
         WeaponProp.SetActive(false);
 
+        isReloading = true;
+
         yield return new WaitForSeconds(weaponData.reloadTime);
 
         WeaponProp.SetActive(true);
@@ -49,6 +55,8 @@ public class Weapon : MonoBehaviour
         weaponData.currentAmmo = weaponData.magSize;
 
         weaponData.reloading = false;
+
+        isReloading = false;
     }
 
     private bool CanActivate() => !weaponData.reloading && timeSinceLastActivation > 1f / (weaponData.fireRatePerMinute / 60f);
@@ -89,8 +97,6 @@ public class Weapon : MonoBehaviour
     private void Update()
     {
         timeSinceLastActivation += Time.deltaTime;
-
-        //WeaponSway();
     }
 
     private void OnWeaponActivation()
@@ -98,7 +104,15 @@ public class Weapon : MonoBehaviour
         GameObject Flash = Instantiate(MuzzleFlash, Muzzle);
         Destroy(Flash, 0.03f);
 
-        Recoil.RecoilFire();
+        if (!isPrimary)
+        {
+            Recoil.RecoilPistol();
+        }
+
+        if (isPrimary)
+        {
+            Recoil.RecoilRiffle();
+        }        
     }
 
     void WeaponSway()

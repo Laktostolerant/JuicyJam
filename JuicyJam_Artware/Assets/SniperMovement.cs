@@ -33,11 +33,8 @@ public class SniperMovement : MonoBehaviour
 
         if(Physics.Raycast(transform.position, Vector3.down, out hit, 10, 1 << 8))
         {
-            Debug.Log("FEET");
             navAgent.Warp(hit.point);
             Debug.DrawLine(transform.position, new Vector3(hit.point.x, hit.point.y - 100, hit.point.z), Color.red, 10);
-            //navAgent.enabled = false;
-            //navAgent.enabled = true;
         }
 
         grapplePoint = transform.position;
@@ -96,7 +93,7 @@ public class SniperMovement : MonoBehaviour
         }
 
         //If player exists range, starts an aggro cooldown where it eventually chases after.
-        if (distFromPlayer > aggroRange && distFromGrapplePoint <= 0.75f)
+        if (distFromPlayer > aggroRange && distFromGrapplePoint <= 1f)
         {
             aggroCoroutine = StartCoroutine(AggroCooldown());
             return;
@@ -128,7 +125,7 @@ public class SniperMovement : MonoBehaviour
     {
         Vector3 newPos = transform.position;
         float distanceFromOrigin = 0;
-        LayerMask grappleMask = 1 << 7 | 1 << 9;
+        LayerMask grappleMask = 1 << 7 | 1 << 8 | 1 << 9;
 
         Vector3 characterCenter = transform.position + charCtrl.center;
         while (distanceFromOrigin < 20)
@@ -178,7 +175,7 @@ public class SniperMovement : MonoBehaviour
     void Gravity()
     {
         RaycastHit groundPos;
-        LayerMask grappleMask = 1 << 7 | 1 << 9;
+        LayerMask grappleMask = 1 << 7 | 1 << 8 | 1 << 9;
         float distFromGround = 100;
 
         if (Physics.Raycast(transform.position, Vector3.down * 50, out groundPos, 50, grappleMask))

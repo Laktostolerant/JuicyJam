@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         // Ground check
         bool groundedCopy = isGrounded;
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
-        if(!groundedCopy && isGrounded)
+        if (!groundedCopy && isGrounded)
         {
             FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Landing", gameObject);
         }
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         if (state == MovementState.walking || state == MovementState.sprinting || state == MovementState.crouching || state == MovementState.sliding || state == MovementState.wallRunning)
             rb.drag = groundDrag;
         else
-            rb.drag = 0;        
+            rb.drag = 0;
     }
 
     private void FixedUpdate()
@@ -253,11 +253,11 @@ public class PlayerMovement : MonoBehaviour
                 time += Time.deltaTime * speedIncreaseMultiplier * slopeIncreaseMultiplier * slopeAngleIncrease;
             }
             else if (state == MovementState.dashing)
-            {                
+            {
                 time += Time.deltaTime * dashSpeedChangeFactor;
             }
             else
-            {               
+            {
                 time += Time.deltaTime * speedIncreaseMultiplier;
             }
 
@@ -277,17 +277,20 @@ public class PlayerMovement : MonoBehaviour
         // on slope
         if (OnSlope() && !exitingSlope)
         {
-            if (state == MovementState.walking)
+            if (verticalInput != 0 || horizontalInput != 0)
             {
-                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step", gameObject);
-            }
-            else if (state == MovementState.sprinting)
-            {
-                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 2", gameObject);
-            }
-            else if (state == MovementState.crouching)
-            {
-                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 4", gameObject);
+                if (state == MovementState.walking)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step", gameObject);
+                }
+                else if (state == MovementState.sprinting)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 2", gameObject);
+                }
+                else if (state == MovementState.crouching)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 4", gameObject);
+                }
             }
 
             rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
@@ -312,7 +315,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 2", gameObject);
                 }
-                else if(state == MovementState.crouching)
+                else if (state == MovementState.crouching)
                 {
                     FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Step 4", gameObject);
                 }

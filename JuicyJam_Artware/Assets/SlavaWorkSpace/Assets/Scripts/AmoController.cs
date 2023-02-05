@@ -14,13 +14,13 @@ public class AmoController : MonoBehaviour
     private int fullAmmo;
     [SerializeField] GameObject AmmoGameObject;
     [SerializeField] WeaponData weaponData;
+    [SerializeField] int matchingNumber;
 
     private void Start()
     {
         fullAmmo = weaponData.magSize;
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentAmmo = weaponData.currentAmmo;
@@ -34,6 +34,16 @@ public class AmoController : MonoBehaviour
         else
         {
             AmmoGameObject.SetActive(true);            
+        }
+
+        if (matchingNumber == WeaponSwap.selectedWeapon)
+        {
+            AmmoGameObject.SetActive(true);
+        }
+
+        if (matchingNumber != WeaponSwap.selectedWeapon)
+        {
+            AmmoGameObject.SetActive(false);
         }
     }    
 }

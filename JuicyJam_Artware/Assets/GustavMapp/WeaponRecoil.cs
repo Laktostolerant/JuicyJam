@@ -7,27 +7,41 @@ public class WeaponRecoil : MonoBehaviour
     Vector3 currentRotation;
     Vector3 targetRotation;
 
-    float recoilX;
-    float recoilY;
-    float recoilZ;
+    float recoilXP;
+    float recoilYP;
+    float recoilZP;
+
+    float recoilXR;
+    float recoilYR;
+    float recoilZR;
 
     float recoilXM;
     float recoilYM;
     float recoilZM;
 
-    float snapback;
-    float returnSpeed;
+    float snapbackP;
+    float returnSpeedP;
 
-    [SerializeField] WeaponData weaponData;
+    float snapbackR;
+    float returnSpeedR;
+
+    [SerializeField] WeaponData weaponDataPistol;
+    [SerializeField] WeaponData weaponDataRifle;
     [SerializeField] WeaponData meleeData;
 
     void Start()
     {
-        recoilX = -weaponData.recoilX;
-        recoilY = weaponData.recoilY;
-        recoilZ = weaponData.recoilZ;
-        snapback = weaponData.snapback;
-        returnSpeed = weaponData.returnSpeed;
+        recoilXP = -weaponDataPistol.recoilX;
+        recoilYP = weaponDataPistol.recoilY;
+        recoilZP = weaponDataPistol.recoilZ;
+        snapbackP = weaponDataPistol.snapback;
+        returnSpeedP = weaponDataPistol.returnSpeed;
+
+        recoilXR = -weaponDataRifle.recoilX;
+        recoilYR = weaponDataRifle.recoilY;
+        recoilZR = weaponDataRifle.recoilZ;
+        snapbackR = weaponDataRifle.snapback;
+        returnSpeedR = weaponDataRifle.returnSpeed;
 
         recoilXM = -meleeData.recoilX;
         recoilYM = meleeData.recoilY;
@@ -39,15 +53,20 @@ public class WeaponRecoil : MonoBehaviour
         RecoilManager();
     }
 
-    public void RecoilFire()
+    public void RecoilPistol()
     {
-        targetRotation += new Vector3(recoilX, Random.Range(-recoilY, recoilY), Random.Range(-recoilZ, recoilZ));
+        targetRotation += new Vector3(recoilXP, Random.Range(-recoilYP, recoilYP), Random.Range(-recoilZP, recoilZP));
+    }
+
+    public void RecoilRiffle()
+    {
+        targetRotation += new Vector3(recoilXR, Random.Range(-recoilYR, recoilYR), Random.Range(-recoilZR, recoilZR));
     }
 
     void RecoilManager()
     {
-        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, returnSpeed * Time.deltaTime);
-        currentRotation = Vector3.Slerp(currentRotation, targetRotation, snapback * Time.deltaTime);
+        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, returnSpeedP * Time.deltaTime);
+        currentRotation = Vector3.Slerp(currentRotation, targetRotation, snapbackP * Time.deltaTime);
         transform.localRotation = Quaternion.Euler(currentRotation);
     }
 
