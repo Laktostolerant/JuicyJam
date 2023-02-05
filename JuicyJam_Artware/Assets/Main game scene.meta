@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:JuicyJam_Artware/Assets/Main game scene.meta
 guid: 55e81088e384c3644b26cab81e78fe4d
 folderAsset: yes
 DefaultImporter:
+========
+guid: 4e880436886de3f4098c830fabbdaf57
+NativeFormatImporter:
+>>>>>>>> 4fc4181914052a98c4f4f9215a14ae035f344600:JuicyJam_Artware/Assets/Tiger/AIAutoSniper.asset.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

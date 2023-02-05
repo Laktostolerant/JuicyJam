@@ -3772,7 +3772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &475504420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16246,7 +16246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.351, y: 0.27416342}
   m_AnchorMax: {x: 0.44054547, y: 0.42400002}
-  m_AnchoredPosition: {x: -2.4140015, y: 14.999985}
+  m_AnchoredPosition: {x: -2.4140015, y: 14.9999695}
   m_SizeDelta: {x: -0.3567, y: -101.8676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1781907456
@@ -24270,6 +24270,11 @@ PrefabInstance:
       propertyPath: bars
       value: 
       objectReference: {fileID: 1517894032}
+    - target: {fileID: 4863924768676700296, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
+        type: 3}
+      propertyPath: spawners
+      value: 
+      objectReference: {fileID: 475504419}
     - target: {fileID: 4863924768676700296, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
         type: 3}
       propertyPath: GetOutText

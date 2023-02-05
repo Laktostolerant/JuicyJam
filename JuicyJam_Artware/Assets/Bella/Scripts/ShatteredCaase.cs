@@ -18,6 +18,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
     [SerializeField] GameObject WinCollider;
     [SerializeField] GameObject alarmEffect;
     [SerializeField] GameObject bars;
+    [SerializeField] GameObject spawners;
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
         {
             textTurnOff = true;
             bars.SetActive(true);
+            spawners.SetActive(true);
             GetOutText.SetActive(true);
             StartCoroutine(TextTimer());
         }
