@@ -1668,25 +1668,19 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 609216971}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609216973}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e13c5cf7072f834ba2020d8fb552c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &609216973 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 566257281710414266, guid: edd2032b32dc3024c8c02bbeb35f322c,
+--- !u!114 &609216975 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 609216974, guid: edd2032b32dc3024c8c02bbeb35f322c,
     type: 3}
   m_PrefabInstance: {fileID: 609216971}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &609216974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609216973}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cd6ef5146be2244b8a91e02cf56e797, type: 3}
@@ -2300,7 +2294,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &772870710
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3248,7 +3242,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 609216974}
+      - m_Target: {fileID: 609216975}
         m_TargetAssemblyTypeName: VCAController, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 0
@@ -3532,7 +3526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1323456656
 RectTransform:
   m_ObjectHideFlags: 0

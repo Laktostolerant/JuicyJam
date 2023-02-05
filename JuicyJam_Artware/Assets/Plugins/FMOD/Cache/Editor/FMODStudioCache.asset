@@ -68,14 +68,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Effects/Effect_Cinematic_Impact
   Guid:
-    Data1: -1881202291
-    Data2: 1160139918
-    Data3: -525078616
-    Data4: 1542675714
+    Data1: 1328441688
+    Data2: 1139195103
+    Data3: 128956044
+    Data4: -1055459445
   Banks:
   - {fileID: -2302047876498529055}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638112012597901247
+  lastModified: 638112034132975574
   FileSizes:
   - Name: 
     Value: 2850
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638112012597841235
+  lastModified: 638112034132875363
   FileSizes: []
   Exists: 1
 --- !u!114 &-1712471831018387203
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   - {fileID: -2302047876498529055}
   StringsBanks:
   - {fileID: -2627777615253949710}
-  cacheTime: 638112012597901247
+  cacheTime: 638112034132975574
   cacheVersion: 131601
 --- !u!114 &115440389291865794
 MonoBehaviour:

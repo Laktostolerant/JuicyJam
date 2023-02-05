@@ -16,6 +16,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
     bool pickUpTextActive;
     [SerializeField] GameObject diamond;
     [SerializeField] GameObject WinCollider;
+    [SerializeField] GameObject alarmEffect;
 
 
     void Start()
@@ -33,6 +34,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
     {
         if (Input.GetKeyDown(KeyCode.F) && pickUpTextActive)
         {
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Effects/Effect_Alarm_Loop", alarmEffect);
             FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Effects/Effect_Cinematic_Impact", gameObject);
             AudioManager.Instance.Stop(AudioManager.Instance.PianoTheme);
             AudioManager.Instance.Play(AudioManager.Instance.ChaosTheme);
