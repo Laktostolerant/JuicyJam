@@ -5,6 +5,7 @@ using UnityEngine;
 public class Target : MonoBehaviour, IDamageable
 {
     public float HP;
+    [SerializeField] bool player;
     [SerializeField] bool vitalArea;
     [SerializeField] float damageMultiplier;
 
@@ -19,7 +20,23 @@ public class Target : MonoBehaviour, IDamageable
 
         if (HP <= 0)
         {
+            if (!player)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Death");
+            }
+
             Destroy(gameObject);
+        }
+        else
+        {
+            if (player)
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Hit", gameObject);
+            }
+            else
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Cyborg/Cyborg_Hit", gameObject);
+            }
         }
     }
 }
