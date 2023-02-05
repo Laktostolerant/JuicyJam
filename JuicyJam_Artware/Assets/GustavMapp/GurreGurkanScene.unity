@@ -683,6 +683,37 @@ RectTransform:
   m_AnchoredPosition: {x: 81.42, y: -189.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &119305460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119305461}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &119305461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119305460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1844267081}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &129189747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,7 +1824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e558792c4bd6c7409cfc64bfcdd1799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: cc728a15b15b1b748b5c2fffb8c06ae6, type: 2}
+  weaponDataPistol: {fileID: 0}
+  weaponDataRifle: {fileID: 0}
   meleeData: {fileID: 11400000, guid: 07c3c8dad916dac498a2a93f49acdabc, type: 2}
 --- !u!1 &424207394
 GameObject:
@@ -2567,6 +2599,74 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &696754008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 696754009}
+  - component: {fileID: 696754011}
+  - component: {fileID: 696754010}
+  m_Layer: 0
+  m_Name: BulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &696754009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696754008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1844267081}
+  m_Father: {fileID: 1562221230}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &696754010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696754008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbff6e6c63822549b3d73048281c29a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AiWeaponData: {fileID: 11400000, guid: bef7b171bbbc9ec47bd7905b3066d241, type: 2}
+  Muzzle: {fileID: 119305461}
+  BulletSpawner: {fileID: 696754009}
+  MuzzleFlash: {fileID: 925256115359036440, guid: 269678b8557e79542b9889ad840f5af5,
+    type: 3}
+  BulletHole: {fileID: 1949756999674365545, guid: b1f436bf69b47f141b265177465590db,
+    type: 3}
+--- !u!114 &696754011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696754008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6da86eb09f2514e85101e2101e5050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponData: {fileID: 11400000, guid: bef7b171bbbc9ec47bd7905b3066d241, type: 2}
+  PlayerSpotter: {fileID: 696754009}
+  triggerRange: 5
 --- !u!1 &704962627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2985,7 +3085,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.00048828125}
   m_SizeDelta: {x: 0, y: -0.00097656}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3077,6 +3177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+  player: 0
   vitalArea: 1
   damageMultiplier: 2
 --- !u!65 &857308827
@@ -3240,6 +3341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+  player: 0
   vitalArea: 0
   damageMultiplier: 0
 --- !u!65 &869521125
@@ -3483,6 +3585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: cc728a15b15b1b748b5c2fffb8c06ae6, type: 2}
+  reloadKey: 114
+  meleeKey: 118
 --- !u!1 &1046748026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3875,8 +3979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7378c2a365a9a94599c498b5fa00c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AmmoCount: {fileID: 83538708}
-  MaxAmmo: {fileID: 1951879485}
+  Bar: {fileID: 0}
   ProgressBar: {fileID: 2088033353}
   weaponData: {fileID: 11400000, guid: cc728a15b15b1b748b5c2fffb8c06ae6, type: 2}
 --- !u!1 &1312973753
@@ -4014,6 +4117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+  player: 0
   vitalArea: 0
   damageMultiplier: 0
 --- !u!65 &1313614064
@@ -4133,7 +4237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1335401990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4158,6 +4262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dfcc8073e06d654c98c1016195524b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
 --- !u!114 &1335401992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4170,6 +4275,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d888890ef3b0e34fabf704a724a965d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
+  SensX: {fileID: 0}
+  SensY: {fileID: 0}
   optionsPanel: {fileID: 747706317}
 --- !u!114 &1335401993
 MonoBehaviour:
@@ -4270,11 +4378,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoCounter: {fileID: 241725883}
-  ammoBar: {fileID: 1507001367}
-  currentAmmo: 0
-  fullAmmo: 0
-  AmmoSlider: {fileID: 0}
+  ammoSlider: {fileID: 0}
+  AmmoGameObject: {fileID: 0}
   weaponData: {fileID: 11400000, guid: cc728a15b15b1b748b5c2fffb8c06ae6, type: 2}
+  matchingNumber: 0
 --- !u!1 &1375972857
 GameObject:
   m_ObjectHideFlags: 0
@@ -4330,6 +4437,7 @@ MonoBehaviour:
   BulletHole: {fileID: 1949756999674365545, guid: b1f436bf69b47f141b265177465590db,
     type: 3}
   Recoil: {fileID: 398039747}
+  isPrimary: 0
 --- !u!1 &1388170313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,7 +4850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!143 &1525362371
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4952,7 +5060,8 @@ Transform:
   m_LocalPosition: {x: -0.38, y: 0.42, z: 5.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 696754009}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5253,6 +5362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+  player: 0
   vitalArea: 0
   damageMultiplier: 0
 --- !u!65 &1740880066
@@ -5445,7 +5555,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0036363634, y: 0}
   m_AnchorMax: {x: 0.057454553, y: 0.123509735}
-  m_AnchoredPosition: {x: 0.43530273, y: 0.46572876}
+  m_AnchoredPosition: {x: 0.43530273, y: 0.46575928}
   m_SizeDelta: {x: -0.8422165, y: 0.4880066}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1814081393
@@ -5693,6 +5803,104 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1844267080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1844267081}
+  - component: {fileID: 1844267084}
+  - component: {fileID: 1844267083}
+  - component: {fileID: 1844267082}
+  m_Layer: 0
+  m_Name: DinMamma
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1844267081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844267080}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.627, y: 0, z: 0.232}
+  m_LocalScale: {x: 0.20823859, y: 0.20973842, z: 1.9257877}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 119305461}
+  m_Father: {fileID: 696754009}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1844267082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844267080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1844267083
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844267080}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1844267084
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844267080}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1853603361
 GameObject:
   m_ObjectHideFlags: 0
@@ -5743,6 +5951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+  player: 0
   vitalArea: 1
   damageMultiplier: 3.5
 --- !u!65 &1853603364
@@ -6212,6 +6421,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   melee: {fileID: 11400000, guid: 07c3c8dad916dac498a2a93f49acdabc, type: 2}
   Recoil: {fileID: 398039747}
+  cam: {fileID: 0}
+  Baton: {fileID: 0}
+  SwingAnimation: {fileID: 0}
 --- !u!114 &1998470043
 MonoBehaviour:
   m_ObjectHideFlags: 0
