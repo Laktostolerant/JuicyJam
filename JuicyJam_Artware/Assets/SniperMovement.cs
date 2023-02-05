@@ -30,6 +30,17 @@ public class SniperMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
             Destroy(gameObject);
+
+        if(Physics.Raycast(transform.position, Vector3.down, out hit, 10, 1 << 8))
+        {
+            Debug.Log("FEET");
+            navAgent.Warp(hit.point);
+            Debug.DrawLine(transform.position, new Vector3(hit.point.x, hit.point.y - 100, hit.point.z), Color.red, 10);
+            //navAgent.enabled = false;
+            //navAgent.enabled = true;
+        }
+
+        grapplePoint = transform.position;
     }
 
     private void Update()
@@ -48,11 +59,11 @@ public class SniperMovement : MonoBehaviour
         }
 
         if (falling)
-        {
             Gravity();
-        }
     }
 
+    //If close enough to the player, go grapple. 
+    //Otherwise, chase the player wherever they are on the map.
     void Chase()
     {
         float distanceFromPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -61,6 +72,7 @@ public class SniperMovement : MonoBehaviour
         {
             navAgent.ResetPath();
             navAgent.enabled = false;
+            grapplePoint = transform.position;
             currentState = EnemyState.GRAPPLING;
         }
         else
@@ -70,17 +82,20 @@ public class SniperMovement : MonoBehaviour
         }
     }
 
+    //Moves toward grapple point if there is any.
     void Grapple()
     {
         float distFromGrapplePoint = Vector3.Distance(transform.position, grapplePoint);
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distFromGrapplePoint > 0.75f)
+        //Move toward grapple point if not there yet.
+        if (distFromGrapplePoint > 1f)
         {
             var step = 9f * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, grapplePoint, step);
         }
 
+        //If player exists range, starts an aggro cooldown where it eventually chases after.
         if (distFromPlayer > aggroRange && distFromGrapplePoint <= 0.75f)
         {
             aggroCoroutine = StartCoroutine(AggroCooldown());
@@ -90,10 +105,12 @@ public class SniperMovement : MonoBehaviour
         if (!canGrapple || currentState != EnemyState.GRAPPLING)
             return;
 
+        //Find new grapple point if it can grapple again.
         if (distFromGrapplePoint <= 1)
             grapplePoint = NewGrapplePoint();
     }
 
+    //Stops the aggro cooldown if player returns.
     void IsPlayerReturn()
     {
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -101,10 +118,12 @@ public class SniperMovement : MonoBehaviour
         {
             Debug.Log("player came back before i could go wacko mode :)");
             StopCoroutine(aggroCoroutine);
+            falling = false;
             currentState = EnemyState.GRAPPLING;
         }
     }
 
+    //Finds a new point to grapple onto.
     Vector3 NewGrapplePoint()
     {
         Vector3 newPos = transform.position;
@@ -135,6 +154,7 @@ public class SniperMovement : MonoBehaviour
         return newPos;
     }
 
+    //Cooldown between grapples.
     IEnumerator GrappleCooldown()
     {
         canGrapple = false;
@@ -142,9 +162,9 @@ public class SniperMovement : MonoBehaviour
         canGrapple = true;
     }
 
+    //Drops enemy onto ground while not aggro & too far, then chases player.
     IEnumerator AggroCooldown()
     {
-        Debug.Log("player go too far >:(");
         currentState = EnemyState.NOAGGRO;
         yield return new WaitForSeconds(2);
         falling = true;
@@ -152,6 +172,9 @@ public class SniperMovement : MonoBehaviour
         currentState = EnemyState.CHASING;
     }
 
+    //Raycasts and sends to ground slowly...
+    //Didnt want to add a rigidbody lol.
+    //Works well enough.
     void Gravity()
     {
         RaycastHit groundPos;
@@ -166,7 +189,7 @@ public class SniperMovement : MonoBehaviour
 
         if (distFromGround > 1f)
         {
-            var step = 3f * Time.fixedDeltaTime;
+            var step = 5f * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, groundPos.point, step);
         }
         else
