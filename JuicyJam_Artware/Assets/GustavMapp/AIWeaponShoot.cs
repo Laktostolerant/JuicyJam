@@ -30,7 +30,6 @@ public class AIWeaponShoot : MonoBehaviour
 
     private IEnumerator CoolDown()
     {
-        FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Reload", gameObject);
         AiWeaponData.reloading = true;
 
         yield return new WaitForSeconds(AiWeaponData.reloadTime);
@@ -48,7 +47,7 @@ public class AIWeaponShoot : MonoBehaviour
         {
             if (CanActivate())
             {
-                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Shot", gameObject);
+                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Cyborg/Cyborg_Gun_Shot", gameObject);
 
                 if (Physics.Raycast(BulletSpawner.transform.position, BulletSpawner.transform.forward, out RaycastHit hitInfo, AiWeaponData.maxDistance))
                 {
@@ -69,7 +68,6 @@ public class AIWeaponShoot : MonoBehaviour
         {
             if (CanActivate())
             {
-                FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Player/Player_Gun_Empty", gameObject);
                 timeSinceLastActivation = 0;
             }
         }
