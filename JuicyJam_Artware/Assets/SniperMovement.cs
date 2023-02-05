@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class SniperMovement : MonoBehaviour
 {
+    private FMOD.Studio.EventInstance reelSound;
     enum EnemyState { CHASING, GRAPPLING, NOAGGRO }
     EnemyState currentState = EnemyState.CHASING;
 
@@ -15,6 +16,7 @@ public class SniperMovement : MonoBehaviour
     float aggroRange = 30;
     bool canGrapple = true;
     bool falling;
+    bool isGrappling = false;
 
     private Vector3 grapplePoint;
     RaycastHit hit;
@@ -31,13 +33,10 @@ public class SniperMovement : MonoBehaviour
         if (!player)
             Destroy(gameObject);
 
-        if(Physics.Raycast(transform.position, Vector3.down, out hit, 10, 1 << 8))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 10, 1 << 8))
         {
-            Debug.Log("FEET");
             navAgent.Warp(hit.point);
             Debug.DrawLine(transform.position, new Vector3(hit.point.x, hit.point.y - 100, hit.point.z), Color.red, 10);
-            //navAgent.enabled = false;
-            //navAgent.enabled = true;
         }
 
         grapplePoint = transform.position;
@@ -85,18 +84,31 @@ public class SniperMovement : MonoBehaviour
     //Moves toward grapple point if there is any.
     void Grapple()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Attachment_Shot");
         float distFromGrapplePoint = Vector3.Distance(transform.position, grapplePoint);
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
         //Move toward grapple point if not there yet.
         if (distFromGrapplePoint > 1f)
         {
+            if (!isGrappling)
+            {
+                reelSound = FMODUnity.RuntimeManager.CreateInstance("event:/Cyborg/Cyborg_Gun_Reeling");
+                reelSound.start();
+                isGrappling = true;
+            }
+
             var step = 9f * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, grapplePoint, step);
         }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Wall_Hook");
+            reelSound.release();
+        }
 
         //If player exists range, starts an aggro cooldown where it eventually chases after.
-        if (distFromPlayer > aggroRange && distFromGrapplePoint <= 0.75f)
+        if (distFromPlayer > aggroRange && distFromGrapplePoint <= 1f)
         {
             aggroCoroutine = StartCoroutine(AggroCooldown());
             return;
@@ -128,7 +140,7 @@ public class SniperMovement : MonoBehaviour
     {
         Vector3 newPos = transform.position;
         float distanceFromOrigin = 0;
-        LayerMask grappleMask = 1 << 7 | 1 << 9;
+        LayerMask grappleMask = 1 << 7 | 1 << 8 | 1 << 9;
 
         Vector3 characterCenter = transform.position + charCtrl.center;
         while (distanceFromOrigin < 20)
@@ -178,7 +190,7 @@ public class SniperMovement : MonoBehaviour
     void Gravity()
     {
         RaycastHit groundPos;
-        LayerMask grappleMask = 1 << 7 | 1 << 9;
+        LayerMask grappleMask = 1 << 7 | 1 << 8 | 1 << 9;
         float distFromGround = 100;
 
         if (Physics.Raycast(transform.position, Vector3.down * 50, out groundPos, 50, grappleMask))
