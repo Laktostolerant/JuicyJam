@@ -2446,6 +2446,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432000869}
   m_CullTransparentMesh: 1
+--- !u!1 &439834779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4257268479923149821, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2438073107169153629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &439834781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439834779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1310729918
+      Data2: 1135166763
+      Data3: 813419947
+      Data4: 404644084
+    Path: event:/Ambience/Ambience_Fountain
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &449061015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6847,6 +6883,12 @@ RectTransform:
   m_AnchoredPosition: {x: 805, y: -386}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1101110591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 504088079025467219, guid: 5c949aa853e4f1d469b99f9d534cdddd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1912235085}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1105171489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eec876cc12a3ba84dbc561f95fe2159a,
@@ -10291,6 +10333,42 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3906832884256009306, guid: a1d85aa1f91e2f648b86d68908458bb1, type: 3}
+--- !u!1 &1618431318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6749520025326776859, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2438073107169153629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1618431323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618431318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -897470330
+      Data2: 1232360799
+      Data3: -276217185
+      Data4: -388654520
+    Path: event:/Ambience/Ambience_Diamond
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1625290066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12252,7 +12330,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1912235085}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1101110591}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ccdc090226688d41bf0fbb1b30b6bc7, type: 3}
@@ -12282,12 +12360,42 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1912235085}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1101110591}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5ea23642501dc246b07d6b24dea125f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1912235100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101110591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1581511518
+      Data2: 1200139903
+      Data3: -1263534188
+      Data4: 567648603
+    Path: event:/Ambience/Ambience_Room
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1932290749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12977,6 +13085,7 @@ MonoBehaviour:
   ammoSlider: {fileID: 1294586298}
   AmmoGameObject: {fileID: 1266014456}
   weaponData: {fileID: 11400000, guid: cedf2fd33bef1df49b1fbac538c80c55, type: 2}
+  matchingNumber: 0
 --- !u!114 &2047443178
 MonoBehaviour:
   m_ObjectHideFlags: 0

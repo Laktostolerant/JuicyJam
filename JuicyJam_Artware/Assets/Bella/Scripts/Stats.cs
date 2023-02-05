@@ -21,6 +21,7 @@ public class Stats : MonoBehaviour
 
     private void Die()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Player/Player_Death");
         GameOverCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
