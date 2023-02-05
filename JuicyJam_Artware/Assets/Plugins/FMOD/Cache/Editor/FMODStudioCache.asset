@@ -1364,7 +1364,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638112000863817771
+  lastModified: 638112012597901247
   FileSizes:
   - Name: 
     Value: 2850
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638112000863737751
+  lastModified: 638112012597841235
   FileSizes: []
   Exists: 1
 --- !u!114 &-1712471831018387203
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   - {fileID: -2302047876498529055}
   StringsBanks:
   - {fileID: -2627777615253949710}
-  cacheTime: 638112000863817771
+  cacheTime: 638112012597901247
   cacheVersion: 131601
 --- !u!114 &115440389291865794
 MonoBehaviour:
@@ -2247,14 +2247,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Effects/Effect_Mission_Complete
   Guid:
-    Data1: 672475728
-    Data2: 1271018603
-    Data3: 12915597
-    Data4: 1592304016
+    Data1: -2080146227
+    Data2: 1139476366
+    Data3: 92454326
+    Data4: -1789735846
   Banks:
   - {fileID: -2302047876498529055}
   IsStream: 1
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1

@@ -20,7 +20,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
 
     void Start()
     {
-        rigidbodyAreas= GetComponentsInChildren<Rigidbody>();   
+        rigidbodyAreas = GetComponentsInChildren<Rigidbody>();
         pickUpCollider.enabled = false;
         PickUpText.SetActive(false);
         GetOutText.SetActive(false);
@@ -33,7 +33,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
     {
         if (Input.GetKeyDown(KeyCode.F) && pickUpTextActive)
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Effects/Effect_Cinematic_Impact");
+            FMODUnity.RuntimeManager.PlayOneShotAttached("event:/Effects/Effect_Cinematic_Impact", gameObject);
             AudioManager.Instance.Stop(AudioManager.Instance.PianoTheme);
             AudioManager.Instance.Play(AudioManager.Instance.ChaosTheme);
             PickUpText.SetActive(false);
@@ -49,7 +49,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
 
         if (hasPickedUpDiamond && !textTurnOff)
         {
-            textTurnOff = true; 
+            textTurnOff = true;
             GetOutText.SetActive(true);
             StartCoroutine(TextTimer());
         }
@@ -86,7 +86,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
         {
             for (int i = 0; i < rigidbodyAreas.Length; i++)
             {
-                rigidbodyAreas[i].GetComponent<Rigidbody>().AddExplosionForce(Random.Range(40f, 60f), 
+                rigidbodyAreas[i].GetComponent<Rigidbody>().AddExplosionForce(Random.Range(40f, 60f),
                     -transform.forward, Random.Range(20f, 40f), Random.Range(2f, 3f), ForceMode.Impulse);
 
                 rigidbodyAreas[i].GetComponent<Rigidbody>().drag = (Random.Range(10, 20));

@@ -19,6 +19,7 @@ public class WinScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/Effects/Effect_Mission_Complete");
+            AudioManager.Instance.Stop(AudioManager.Instance.ChaosTheme);
             winCanvas.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
