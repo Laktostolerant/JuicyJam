@@ -10817,42 +10817,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3906832884256009306, guid: a1d85aa1f91e2f648b86d68908458bb1, type: 3}
---- !u!1 &1618431318 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6749520025326776859, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2438073107169153629}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1618431323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618431318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -897470330
-      Data2: 1232360799
-      Data3: -276217185
-      Data4: -388654520
-    Path: event:/Ambience/Ambience_Diamond
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1001 &1625290066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15214,6 +15178,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 28aae6e16d0b9fc4d803ebbdd268e54d, type: 2}
+    - target: {fileID: 1186374664500054733, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1237288977894499314, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -17153,3 +17122,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2438073107169153629}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2438073107169153632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1186374664500054733, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2438073107169153629}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2438073107169153633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438073107169153632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -897470330
+      Data2: 1232360799
+      Data3: -276217185
+      Data4: -388654520
+    Path: event:/Ambience/Ambience_Diamond
+  Event: 
+  PlayEvent: 1
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

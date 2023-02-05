@@ -33,6 +33,9 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
     {
         if (Input.GetKeyDown(KeyCode.F) && pickUpTextActive)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Effects/Effect_Cinematic_Impact");
+            AudioManager.Instance.Stop(AudioManager.Instance.PianoTheme);
+            AudioManager.Instance.Play(AudioManager.Instance.ChaosTheme);
             PickUpText.SetActive(false);
             hasPickedUpDiamond = true;
             diamond.SetActive(false);
