@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3575991254775604600}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dc57146b535b2f47bca1c1163e06cce, type: 3}
   m_Name: 
@@ -2182,9 +2182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6da86eb09f2514e85101e2101e5050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: bef7b171bbbc9ec47bd7905b3066d241, type: 2}
+  weaponData: {fileID: 11400000, guid: 4e880436886de3f4098c830fabbdaf57, type: 2}
   PlayerSpotter: {fileID: 7582213228457696420}
-  triggerRange: 5
+  triggerRange: 5000
 --- !u!114 &7582213227443548122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2197,10 +2197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbff6e6c63822549b3d73048281c29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiWeaponData: {fileID: 11400000, guid: bef7b171bbbc9ec47bd7905b3066d241, type: 2}
+  AiWeaponData: {fileID: 11400000, guid: 4e880436886de3f4098c830fabbdaf57, type: 2}
   Muzzle: {fileID: 7582213228550424187}
   BulletSpawner: {fileID: 7582213228457696420}
-  verticalRecoil: 500
+  verticalRecoil: 100
   MuzzleFlash: {fileID: 925256115359036440, guid: 269678b8557e79542b9889ad840f5af5,
     type: 3}
   BulletHole: {fileID: 1949756999674365545, guid: b1f436bf69b47f141b265177465590db,
