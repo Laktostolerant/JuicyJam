@@ -88,7 +88,11 @@ public class SniperMovement : MonoBehaviour
     void Grapple()
     {
         animator.SetBool("running", false);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Attachment_Shot");
+
+        if (!isGrappling)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Attachment_Shot");
+        }
         float distFromGrapplePoint = Vector3.Distance(transform.position, grapplePoint);
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);
 
@@ -107,13 +111,13 @@ public class SniperMovement : MonoBehaviour
         }
         else
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Wall_Hook");
             reelSound.release();
         }
 
         //If player exists range, starts an aggro cooldown where it eventually chases after.
         if (distFromPlayer > aggroRange && distFromGrapplePoint <= 1f)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Cyborg/Cyborg_Gun_Wall_Hook");
             aggroCoroutine = StartCoroutine(AggroCooldown());
             return;
         }
