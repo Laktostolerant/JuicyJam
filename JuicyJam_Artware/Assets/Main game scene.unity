@@ -3961,10 +3961,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1470195401}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: PlayUIHover
-        m_Mode: 1
+      - m_Target: {fileID: 2019678367}
+        m_TargetAssemblyTypeName: VCAController, Assembly-CSharp
+        m_MethodName: SetVolume
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12808,6 +12808,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edd2032b32dc3024c8c02bbeb35f322c, type: 3}
+--- !u!114 &2019678367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 609216974, guid: edd2032b32dc3024c8c02bbeb35f322c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2019678366}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd6ef5146be2244b8a91e02cf56e797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2024958536
 GameObject:
   m_ObjectHideFlags: 0
