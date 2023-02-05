@@ -15,7 +15,7 @@ public class AIWeaponActivation : MonoBehaviour
     {
         if (!GameSettings.isPaused)
         {            
-            if (Physics.Raycast(PlayerSpotter.position, PlayerSpotter.forward, out RaycastHit hitInfo, triggerRange))
+            if (Physics.Raycast(PlayerSpotter.position, PlayerSpotter.forward, out RaycastHit hitInfo, triggerRange) && hitInfo.transform.CompareTag("Player"))
             {
                 AIweaponInput?.Invoke();
                 Debug.Log("Hit");
