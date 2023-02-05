@@ -7458,6 +7458,7 @@ GameObject:
   - component: {fileID: 6384160180112954529}
   - component: {fileID: 6384160180112954528}
   - component: {fileID: 6384160180112954527}
+  - component: {fileID: 6384160180112954530}
   m_Layer: 0
   m_Name: EnemySniper
   m_TagString: Untagged
@@ -7518,6 +7519,26 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &6384160180112954530
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6384160180112954526}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ddb489dddff130428493324939634f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &6487833099694781561
 Transform:
   m_ObjectHideFlags: 0
