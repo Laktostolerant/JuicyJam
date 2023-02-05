@@ -681,7 +681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.381644, y: 0.11113382}
   m_AnchorMax: {x: 0.620288, y: 0.32900003}
-  m_AnchoredPosition: {x: -1.5355225, y: -87.77496}
+  m_AnchoredPosition: {x: -1.5355225, y: -87.77498}
   m_SizeDelta: {x: 5.4400024, y: -3.0800018}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318508007
@@ -1507,10 +1507,28 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 609216971}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 609216973}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e13c5cf7072f834ba2020d8fb552c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &609216973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 566257281710414266, guid: edd2032b32dc3024c8c02bbeb35f322c,
+    type: 3}
+  m_PrefabInstance: {fileID: 609216971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &609216974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609216973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd6ef5146be2244b8a91e02cf56e797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &625534459
@@ -2910,8 +2928,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2116726105}
-        m_TargetAssemblyTypeName: MusicScript, Assembly-CSharp
+      - m_Target: {fileID: 609216974}
+        m_TargetAssemblyTypeName: VCAController, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
@@ -4215,7 +4233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.39000002, y: 0.1503594}
   m_AnchorMax: {x: 0.60148185, y: 0.3332812}
-  m_AnchoredPosition: {x: 7.025299, y: -64}
+  m_AnchoredPosition: {x: 7.025299, y: -63.99994}
   m_SizeDelta: {x: 2.75, y: 0.7599945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1744835914
