@@ -8,7 +8,11 @@ public class AIWeaponShoot : MonoBehaviour
     [SerializeField] Transform Muzzle;
     [SerializeField] Transform BulletSpawner;
 
+    [SerializeField] float verticalRecoil;
     float timeSinceLastActivation;
+
+    Vector3 targetRotation;
+    Vector3 currentRotation;
 
     [SerializeField] GameObject MuzzleFlash;
     [SerializeField] GameObject BulletHole;
@@ -58,7 +62,7 @@ public class AIWeaponShoot : MonoBehaviour
                     obj.transform.position += obj.transform.position / -1000;
                     Destroy(obj, 1f);
                 }
-
+                Recoil();
                 AiWeaponData.currentAmmo--;
                 timeSinceLastActivation = 0;
                 OnWeaponActivation();
@@ -77,7 +81,16 @@ public class AIWeaponShoot : MonoBehaviour
     {
         timeSinceLastActivation += Time.deltaTime;
 
-        StartCooldown();
+        StartCooldown();        
+
+        targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, 1 * Time.deltaTime);
+        currentRotation = Vector3.Slerp(currentRotation, targetRotation, 1 * Time.deltaTime);
+        transform.localRotation = Quaternion.Euler(currentRotation);
+    }
+
+    void Recoil()
+    {
+        targetRotation += new Vector3(0, Random.Range(-verticalRecoil, verticalRecoil), 0);
     }
 
     private void OnWeaponActivation()
