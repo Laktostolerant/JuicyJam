@@ -1,18 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AIWeaponActivation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static Action AIweaponInput;
 
-    // Update is called once per frame
+    [SerializeField] WeaponData weaponData;
+    [SerializeField] Transform PlayerSpotter;
+    [SerializeField] float triggerRange;
+
     void Update()
     {
-        
+        if (!GameSettings.isPaused)
+        {            
+            if (Physics.Raycast(PlayerSpotter.position, PlayerSpotter.forward, out RaycastHit hitInfo, triggerRange))
+            {
+                AIweaponInput?.Invoke();
+                Debug.Log("Hit");
+            }            
+        }
+
+        Debug.DrawRay(PlayerSpotter.position, PlayerSpotter.forward, Color.green);
     }
 }
