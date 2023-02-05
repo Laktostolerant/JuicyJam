@@ -90,10 +90,13 @@ public class SniperMovement : MonoBehaviour
     {
         animator.SetBool("running", false);
 
+        //float singleStep = 1f * Time.deltaTime;
+        //Vector3 playerDirection = Vector3.RotateTowards(transform.position, player.transform.position, singleStep, 0.1f);
+        //transform.rotation = Quaternion.LookRotation(-playerDirection);
 
-        float singleStep = 1f * Time.deltaTime;
-        Vector3 playerDirection = Vector3.RotateTowards(transform.position, player.transform.position, singleStep, 0.1f);
-        transform.rotation = Quaternion.LookRotation(-playerDirection);
+        var lookPos = player.transform.position - transform.position;
+        var rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 10);
 
         float distFromGrapplePoint = Vector3.Distance(transform.position, grapplePoint);
         float distFromPlayer = Vector3.Distance(transform.position, player.transform.position);

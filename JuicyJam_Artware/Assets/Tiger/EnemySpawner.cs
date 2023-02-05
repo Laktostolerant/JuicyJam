@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("SpawnEnemies", Random.Range(3, 6));
+        Invoke("SpawnEnemies", Random.Range(5, 9));
         enemySpawnManager = GameObject.FindWithTag("GameManager").GetComponent<EnemySpawnManager>();
 
         if(Physics.Raycast(transform.position, Vector3.down, out hit, 20, rayMask))
@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     //Rudimentary system, lots of space for optimisation, but fills its purpose.
     void SpawnEnemies()
     {
-        int numberOfEnemies = Random.Range(2, 4);
+        int numberOfEnemies = Random.Range(1, 3);
 
         for(int index = 0; index < numberOfEnemies; index++)
         {
@@ -32,6 +32,6 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemySpawnManager.sniperPrefab, spawnOffset, new Quaternion(0,0,0,0));
         }
 
-        Invoke("SpawnEnemies", Random.Range(3, 6));
+        Invoke("SpawnEnemies", Random.Range(5, 9));
     }
 }

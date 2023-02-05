@@ -29,7 +29,7 @@ public class EnemySpawnManager : MonoBehaviour
             Vector3 spawnPos = allSpawnPoints[i].transform.position;
             Vector3 playerPos = playerTransform.position;
 
-            if (Vector3.Distance(spawnPos, playerPos) < 100 && Vector3.Distance(spawnPos, playerPos) > 50)
+            if (Vector3.Distance(spawnPos, playerPos) < 100 && Vector3.Distance(spawnPos, playerPos) > 30)
             {
                 allSpawnPoints[i].GetComponent<EnemySpawner>().enabled = true;
             }

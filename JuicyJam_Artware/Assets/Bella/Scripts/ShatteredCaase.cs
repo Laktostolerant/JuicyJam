@@ -17,7 +17,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
     [SerializeField] GameObject diamond;
     [SerializeField] GameObject WinCollider;
     [SerializeField] GameObject alarmEffect;
-
+    [SerializeField] GameObject bars;
 
     void Start()
     {
@@ -52,6 +52,7 @@ public class ShatteredCaase : MonoBehaviour, IDamageable
         if (hasPickedUpDiamond && !textTurnOff)
         {
             textTurnOff = true;
+            bars.SetActive(true);
             GetOutText.SetActive(true);
             StartCoroutine(TextTimer());
         }
