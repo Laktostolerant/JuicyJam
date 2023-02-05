@@ -1269,6 +1269,68 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2438073107169153629}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &177995903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 177995904}
+  - component: {fileID: 177995905}
+  m_Layer: 0
+  m_Name: Alarm Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &177995904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177995903}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.7175099, z: -8.260685}
+  m_LocalScale: {x: 1.1077019, y: 1.1077019, z: 1.1077019}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 520067511}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &177995905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177995903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1616961852
+      Data2: 1299507588
+      Data3: 1663929007
+      Data4: 382662746
+    Path: event:/Effects/Effect_Alarm_Loop
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &207424860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2319499346099835713, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
@@ -3346,6 +3408,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5237953990200367115, guid: cd6473fb44a26f04e882f4ae2f50b939,
     type: 3}
   m_PrefabInstance: {fileID: 509352933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &520067511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7410663957630397800, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2438073107169153629}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &547805850
 PrefabInstance:
@@ -17943,6 +18011,11 @@ PrefabInstance:
       propertyPath: WinCollider
       value: 
       objectReference: {fileID: 812442344}
+    - target: {fileID: 4863924768676700296, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
+        type: 3}
+      propertyPath: alarmEffect
+      value: 
+      objectReference: {fileID: 177995903}
     - target: {fileID: 4863924768676700296, guid: c1da3ba49f89b5c4ea44bbfcff6e7f1c,
         type: 3}
       propertyPath: screenShake
