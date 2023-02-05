@@ -47,10 +47,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1549661206
-      Data2: 1177969237
-      Data3: 78681524
-      Data4: -546837226
+      Data1: -1961744438
+      Data2: 1327889212
+      Data3: 803148979
+      Data4: 304064531
     Path: event:/Music/main Theme - Ben
   Event: 
   PlayEvent: 11
@@ -206,10 +206,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -22411080
-      Data2: 1341354760
-      Data3: -1213949531
-      Data4: 888216531
+      Data1: -184818688
+      Data2: 1193170206
+      Data3: -391565689
+      Data4: 53778153
     Path: event:/Music/Ross Bugden - Welcome to Chaos
   Event: 
   PlayEvent: 11
@@ -268,10 +268,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1611189694
-      Data2: 1222885379
-      Data3: -593674057
-      Data4: -861662091
+      Data1: -1167505227
+      Data2: 1229812963
+      Data3: -1596622425
+      Data4: 469820312
     Path: event:/Music/midnight-123895
   Event: 
   PlayEvent: 11
@@ -293,6 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566257281710414268}
   - component: {fileID: 566257281710414267}
+  - component: {fileID: 609216974}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -332,3 +333,15 @@ MonoBehaviour:
   PianoTheme: {fileID: 566257281141455131}
   ChaosTheme: {fileID: 566257281100891310}
   EQSnapShot: {fileID: 566257280631901345}
+--- !u!114 &609216974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566257281710414266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd6ef5146be2244b8a91e02cf56e797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
