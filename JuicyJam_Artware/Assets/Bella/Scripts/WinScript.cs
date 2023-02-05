@@ -18,6 +18,7 @@ public class WinScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Effects/Effect_Mission_Complete");
             winCanvas.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
